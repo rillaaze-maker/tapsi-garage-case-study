@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>A dead battery isn't a shopping trip · Tapsi Garage case study</title>
+<title>A dead battery isn't a shopping trip · Tapsi Garage case study · Alireza Rahbari</title>
+<meta name="author" content="Alireza Rahbari">
 <meta name="description" content="Snapp! Product Designer challenge. A case study on Tapsi Garage's battery experience.">
 <meta property="og:title" content="A dead battery isn't a shopping trip">
 <meta property="og:description" content="Tapsi Garage battery case study · Snapp! Product Designer challenge">
@@ -14,13 +15,23 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="at-landing">
+<body class="at-landing loading">
+
+<div class="loader" id="loader" role="status" aria-live="polite">
+  <div class="loader-inner">
+    <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13.5 2 5 13.5h6L9.5 22 19 9.5h-6z"/></svg></span>
+    <p>Loading the case study</p>
+    <div class="loader-bar"><i id="loaderBar"></i></div>
+    <span class="loader-pct" id="loaderPct">0%</span>
+  </div>
+</div>
 
 <!-- ================= LANDING ================= -->
 <section class="landing" id="landing" aria-labelledby="landingTitle">
   <div class="landing-inner">
     <div class="landing-copy">
       <p class="overline">Snapp! · Product Designer challenge</p>
+      <p class="byline">by <b>Alireza Rahbari</b></p>
       <h1 id="landingTitle">A dead battery isn't a shopping&nbsp;trip.</h1>
       <p class="landing-sub">A case study on Tapsi Garage's battery experience: the driver stuck on the road, and the driver planning ahead.</p>
 
@@ -39,9 +50,9 @@
       <p class="hint">Move with <kbd>←</kbd> <kbd>→</kbd>, the arrows at the bottom, or by swiping. You can switch paths anytime.</p>
     </div>
     <div class="landing-visual" aria-hidden="true">
+      <div class="phone" data-img="O16"></div>
+      <div class="phone" data-img="S18"></div>
       <div class="phone" data-img="S16"></div>
-      <div class="phone" data-img="O14"></div>
-      <div class="phone" data-img="O06"></div>
     </div>
   </div>
 </section>
@@ -214,13 +225,13 @@
       <article class="user em">
         <span class="user-k">Emergency</span>
         <h3>Stuck on the road</h3>
-        <p class="story"><b>When</b> my car won't start and I'm stuck on the road, <b>I want</b> someone to come and get it running, <b>so I can</b> get back on my way without knowing anything about batteries.</p>
+        <p class="jstory"><b>When</b> my car won't start and I'm stuck on the road, <b>I want</b> someone to come and get it running, <b>so I can</b> get back on my way without knowing anything about batteries.</p>
         <p class="needs"><span>Needs</span>Help where the car is · One decision · How soon</p>
       </article>
       <article class="user pl">
         <span class="user-k">Planned</span>
         <h3>Replacing it before it dies</h3>
-        <p class="story"><b>When</b> my battery is getting weak, <b>I want</b> the right battery for my car at a fair price, installed when it suits me, <b>so I don't</b> end up stranded later.</p>
+        <p class="jstory"><b>When</b> my battery is getting weak, <b>I want</b> the right battery for my car at a fair price, installed when it suits me, <b>so I don't</b> end up stranded later.</p>
         <p class="needs"><span>Needs</span>Certainty it fits · Honest comparison · My time</p>
       </article>
     </div>
@@ -235,7 +246,7 @@
     <p class="lead">What each screen is doing, and whether that serves each user.</p>
     <div class="legend"><span class="ok">Serves</span><span class="mid">Partly</span><span class="no">Fails</span></div>
   </div>
-  <div class="hscroll">
+  <div class="flow-wrap">
     <div class="flow">
       <div class="step"><div class="phone" data-img="S18"></div><p class="st"><b>A1</b> Home</p><p class="sj">Point me to a category</p><ul class="vd"><li class="no"><span>Emergency</span>Nothing says "my car won't start".</li><li class="mid"><span>Planned</span>The battery hides under <bdi class="fa">«برق خودرو»</bdi>.</li></ul></div>
       <div class="step"><div class="phone" data-img="S16"></div><p class="st"><b>A2</b> Category</p><p class="sj">Show me batteries</p><ul class="vd"><li class="no"><span>Emergency</span>A grid of prices and discounts.</li><li class="no"><span>Planned</span>Ignores the car I already saved.</li></ul></div>
@@ -256,7 +267,7 @@
     <p class="lead">The same questions, on the path built for help.</p>
     <div class="legend"><span class="ok">Serves</span><span class="mid">Partly</span><span class="no">Fails</span></div>
   </div>
-  <div class="hscroll">
+  <div class="flow-wrap">
     <div class="flow">
       <div class="step"><div class="phone" data-img="S18"></div><p class="st"><b>B1</b> Home</p><p class="sj">Point me to on-site help</p><ul class="vd"><li class="no"><span>Emergency</span>Sits next to insurance and fines.</li><li class="mid"><span>Planned</span>Findable if you know it exists.</li></ul></div>
       <div class="step"><div class="phone" data-img="O16"></div><p class="st"><b>B2</b> On-site services</p><p class="sj">Offer on-site services</p><ul class="vd"><li class="mid"><span>Emergency</span>Clear, but a level too deep.</li><li class="ok"><span>Planned</span>At-home replacement, in Tehran.</li></ul></div>
@@ -399,7 +410,7 @@
     <h2>What, why, how.</h2>
     <dl class="wwh">
       <div><dt>What</dt><dd>Two ways to get a battery. The catalog sells it like engine oil and sends you to a shop. The on-site service is hidden, runs on a partner's web page, and books a time window.</dd></div>
-      <div><dt>Why</dt><dd>Both were built as purchases, product first. For a battery, the situation comes first: a dead car needs help fast, a planned swap needs certainty it fits.</dd></div>
+      <div class="key"><dt>Why<span>The core insight</span></dt><dd>Both were built as purchases, <mark>product first</mark>. For a battery, <mark>the situation comes first</mark>: a dead car needs help fast, a planned swap needs certainty it fits.</dd></div>
       <div><dt>How</dt><dd>One entry that asks what's going on. An emergency path built for speed. A planned path that starts from your car and joins shop and at-home installation.</dd></div>
     </dl>
   </div>
@@ -467,7 +478,7 @@
     <h2>Learning Snapp's design language.</h2>
     <p class="lead">Snapp doesn't publish its system, so I studied 45 screens of the Snapp app and read the tokens from its web app's CSS. My redesign follows these.</p>
     <div class="fgrid four">
-      <figure class="fcard"><div class="spot" data-img="N17" data-r="0,1130,525,1210" data-tone="g"></div><figcaption><strong>Primary action</strong><span>Green #22A958, full width, one per screen</span></figcaption></figure>
+      <figure class="fcard"><div class="spot" data-img="N17" data-r="0,1130,525,1210" data-tone="g"></div><figcaption><strong>Primary action</strong><span>Green #22A958, full width, one per screen. Captured mid right-to-left transition.</span></figcaption></figure>
       <figure class="fcard"><div class="spot" data-img="N43" data-r="0,85,591,300" data-tone="v"></div><figcaption><strong>Bottom sheets</strong><span>Rounded top, violet #575EFF selection</span></figcaption></figure>
       <figure class="fcard"><div class="spot" data-img="N41" data-r="0,160,591,400" data-tone="v"></div><figcaption><strong>Flat lists</strong><span>Dividers, not cards. Violet toggles</span></figcaption></figure>
       <figure class="fcard"><div class="spot" data-img="N44" data-r="0,140,591,215" data-tone="g"></div><figcaption><strong>Tabs</strong><span>Underline for the active tab</span></figcaption></figure>
@@ -507,7 +518,7 @@
   <div class="s-inner narrow">
     <p class="ch-label">Bonus · Next steps</p>
     <h2>With more time, I'd…</h2>
-    <ol class="next">
+    <ol class="next-list">
       <li><b>Test with both users.</b> Five who've been stranded, five planning a swap.</li>
       <li><b>Book the on-site service by day.</b> I walked it at 10 pm; I'd check same-day slots.</li>
       <li><b>Ask why it runs on a partner page</b> and what bringing it in-app takes.</li>
@@ -533,6 +544,7 @@
   <div class="s-inner">
     <p class="ch-label">Appendix</p>
     <h2>All 97 Tapsi Garage screens I captured.</h2>
+    <p class="lead">Scroll to see them all, and click any screen to enlarge it.</p>
     <div class="tabs" role="tablist">
       <button type="button" role="tab" aria-selected="true" data-gal="all">All · 97</button>
       <button type="button" role="tab" aria-selected="false" data-gal="O">On-site service · 16</button>

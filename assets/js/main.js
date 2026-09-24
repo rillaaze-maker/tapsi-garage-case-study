@@ -1,8 +1,41 @@
 (() => {
   'use strict';
 
+  /* ---------- load every screenshot (one bundle), then start ---------- */
+  const EST = 3.35e6;
+  const loader = document.getElementById('loader');
+  const bar = document.getElementById('loaderBar');
+  const pctEl = document.getElementById('loaderPct');
+  const setP = p => { const v = Math.min(99, Math.round(p * 100)); bar.style.transform = `scaleX(${v / 100})`; pctEl.textContent = v + '%'; };
+
+  function loadScreens() {
+    return new Promise((resolve, reject) => {
+      const inject = code => { const s = document.createElement('script'); if (code) s.textContent = code; else s.src = 'assets/screens.js'; s.onload = resolve; s.onerror = reject; document.head.appendChild(s); if (code) resolve(); };
+      if (location.protocol === 'file:') { inject(null); return; }
+      const x = new XMLHttpRequest();
+      x.open('GET', 'assets/screens.js');
+      x.onprogress = e => setP(e.lengthComputable ? e.loaded / e.total : e.loaded / EST);
+      x.onload = () => (x.status >= 200 && x.status < 300 ? inject(x.responseText) : reject(new Error(x.status)));
+      x.onerror = reject;
+      x.send();
+    });
+  }
+
+  loadScreens()
+    .then(() => {
+      setP(1); pctEl.textContent = '100%';
+      init();
+      document.body.classList.remove('loading');
+      loader.classList.add('done');
+      setTimeout(() => loader.remove(), 500);
+    })
+    .catch(() => {
+      loader.querySelector('p').textContent = "Couldn't load the screenshots. Please refresh the page.";
+    });
+
+  function init() {
   const W = 591, H = 1280;
-  const src = id => `assets/screens/${id}.webp`;
+  const src = id => (window.SCREENS && window.SCREENS[id]) || `assets/screens/${id}.webp`;
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
   const pct = (v, t) => (v / t * 100).toFixed(3) + '%';
@@ -470,4 +503,5 @@
     }
     openOverlay(lb);
   });
+  }
 })();
