@@ -300,7 +300,11 @@
   function updateChrome() {
     const slide = list[idx];
     const hasScreens = !!slide.querySelector('.phone[data-lb], .spot, .thumb, .g-item, .phone.redesign:not(.is-empty)');
-    $('#zoomTip').hidden = !hasScreens;
+    const tipEl = $('#zoomTip');
+    tipEl.hidden = !hasScreens;
+    tipEl.classList.remove('faded');
+    clearTimeout(updateChrome.tipT);
+    if (hasScreens) updateChrome.tipT = setTimeout(() => tipEl.classList.add('faded'), 3500);
     $('#counter').textContent = `${idx + 1} / ${list.length}`;
     $('#prev').disabled = idx === 0;
     $('#next').disabled = idx === list.length - 1;

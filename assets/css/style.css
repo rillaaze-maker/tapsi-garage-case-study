@@ -48,12 +48,24 @@ kbd { font: 500 12px/1 var(--font); padding: 3px 6px; border: 1px solid var(--li
 ::selection { background: var(--green-tint); }
 
 /* ============ ZOOM TIP ============ */
-.zoom-tip { position: fixed; z-index: 15; right: 20px; bottom: calc(var(--bottom) + 12px); margin: 0; display: inline-flex; align-items: center; gap: 7px; padding: 7px 12px; border-radius: 99px; background: var(--bg); border: 1px solid var(--line-2); box-shadow: 0 4px 14px -6px rgba(20,23,26,.25); font-size: 13px; font-weight: 500; color: var(--ink-2); pointer-events: none; }
+.zoom-tip { margin: 0; display: inline-flex; align-items: center; gap: 7px; padding: 6px 12px; border-radius: 99px; background: var(--green-tint); color: var(--green-ink); font-size: 13.5px; font-weight: 600; white-space: nowrap; transition: opacity .4s ease; }
 .zoom-tip[hidden], body.at-landing .zoom-tip { display: none; }
-.zoom-tip svg { width: 15px; height: 15px; color: var(--green-ink); }
+.zoom-tip svg { width: 16px; height: 16px; stroke-width: 2.4; }
 .zoom-tip .tip-tap { display: none; }
 @media (hover: none) { .zoom-tip .tip-click { display: none; } .zoom-tip .tip-tap { display: inline; } }
-@media (max-width: 900px) { .zoom-tip { right: 50%; transform: translateX(50%); bottom: calc(var(--bottom) + 8px); font-size: 12px; padding: 5px 10px; } }
+@media (max-width: 1100px) { .zoom-tip { font-size: 12.5px; padding: 5px 10px; } }
+@media (max-width: 900px) {
+  .zoom-tip { position: fixed; z-index: 25; top: calc(var(--top) + 8px); left: 50%; transform: translateX(-50%); box-shadow: 0 6px 18px -8px rgba(20,23,26,.35); pointer-events: none; }
+  .zoom-tip.faded { opacity: 0; }
+}
+.mobile-note { display: none; }
+@media (max-width: 900px) {
+  .mobile-note { display: flex; gap: 10px; align-items: flex-start; margin: 22px 0 0; padding: 12px 14px; border-radius: 12px; background: var(--bg-2); border: 1px solid var(--line); font-size: 14px; color: var(--ink-2); line-height: 1.45; }
+  .mobile-note svg { flex: none; width: 18px; height: 18px; margin-top: 1px; color: var(--ink); }
+  .mobile-note b { color: var(--ink); font-weight: 600; }
+  .mobile-note + .choices { margin-top: 16px; }
+}
+@media (min-width: 901px) { .bar.top .seg { position: absolute; left: 50%; transform: translateX(-50%); } }
 .overlay.lb { cursor: zoom-out; }
 .overlay.lb .phone, .overlay.lb .lb-zoom, .overlay.lb .lb-side p { cursor: default; }
 
