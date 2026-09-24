@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A dead battery isn't a shopping trip · Tapsi Garage case study</title>
+<meta name="description" content="Snapp! Product Designer challenge. A case study on Tapsi Garage's battery experience.">
+<meta property="og:title" content="A dead battery isn't a shopping trip">
+<meta property="og:description" content="Tapsi Garage battery case study · Snapp! Product Designer challenge">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2322A958'/%3E%3Cpath d='M36 10 18 36h12l-4 18 20-28H34z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="at-landing">
+
+<!-- ================= LANDING ================= -->
+<section class="landing" id="landing" aria-labelledby="landingTitle">
+  <div class="landing-inner">
+    <div class="landing-copy">
+      <p class="overline">Snapp! · Product Designer challenge</p>
+      <h1 id="landingTitle">A dead battery isn't a shopping&nbsp;trip.</h1>
+      <p class="landing-sub">A case study on Tapsi Garage's battery experience: the driver stuck on the road, and the driver planning ahead.</p>
+
+      <div class="choices" role="group" aria-label="Choose how to read">
+        <button type="button" class="choice" data-start="quick">
+          <span class="choice-top"><span class="choice-name">Quick look</span><span class="choice-meta" data-count="quick"></span></span>
+          <span class="choice-desc">The problem, the evidence, the redesign.</span>
+          <span class="choice-go">Start <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </button>
+        <button type="button" class="choice" data-start="full">
+          <span class="choice-top"><span class="choice-name">Full case study</span><span class="choice-meta" data-count="full"></span></span>
+          <span class="choice-desc">Everything, plus my process, every finding and the bonus material.</span>
+          <span class="choice-go">Start <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </button>
+      </div>
+      <p class="hint">Move with <kbd>←</kbd> <kbd>→</kbd>, the arrows at the bottom, or by swiping. You can switch paths anytime.</p>
+    </div>
+    <div class="landing-visual" aria-hidden="true">
+      <div class="phone" data-img="S16"></div>
+      <div class="phone" data-img="O14"></div>
+      <div class="phone" data-img="O06"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DECK CHROME ================= -->
+<header class="bar top" id="topbar">
+  <button type="button" class="brand" id="toLanding" aria-label="Back to start">
+    <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13.5 2 5 13.5h6L9.5 22 19 9.5h-6z"/></svg></span>
+    <span class="brand-text">Tapsi Garage · Battery</span>
+  </button>
+  <div class="seg" role="group" aria-label="Reading path">
+    <button type="button" data-path="quick" aria-pressed="false">Quick look</button>
+    <button type="button" data-path="full" aria-pressed="true">Full case study</button>
+  </div>
+  <div class="top-right">
+    <span class="counter" id="counter" aria-live="polite">1 / 1</span>
+    <button type="button" class="ghost-btn" id="openIndex" aria-haspopup="dialog">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+      <span>All slides</span>
+    </button>
+  </div>
+</header>
+
+<main class="deck" id="deck">
+
+<!-- ========== CONTEXT ========== -->
+<section class="slide" data-id="glance" data-ch="Context" data-title="At a glance" data-quick>
+  <div class="s-inner split">
+    <div class="s-text">
+      <p class="ch-label">Context</p>
+      <h2>Tapsi Garage sells help the way it sells engine oil.</h2>
+      <p class="lead">There are two ways to get a battery in the app. Both are built like a purchase. Neither treats a dead car as urgent.</p>
+      <div class="facts">
+        <div><b>2</b><span>paths walked end to end</span></div>
+        <div><b>0 / 16</b><span>screens fully serve the stranded driver</span></div>
+        <div><b>22</b><span>heuristic findings</span></div>
+      </div>
+    </div>
+    <div class="s-visual pair">
+      <figure><div class="spot" data-img="S16" data-r="405,695,482,732" data-tone="s2" data-alt="Battery catalog: installation is a grey tag under the price"></div><figcaption><b>Path A</b> The catalog</figcaption></figure>
+      <figure><div class="spot" data-img="O14" data-r="120,962,590,1045" data-tone="s3" data-alt="On-site service: 'I'm stranded' is a small checkbox"></div><figcaption><b>Path B</b> The on-site service</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ========== RESEARCH ========== -->
+<section class="slide" data-id="process" data-ch="Research" data-title="Three days, time-boxed" data-quick>
+  <div class="s-inner">
+    <p class="ch-label">Research</p>
+    <h2>Three days, time-boxed.</h2>
+    <p class="lead">One working day for design, as the brief asks. The rest went into finding a problem I could prove.</p>
+    <div class="timebox">
+      <div class="tb-day">
+        <div class="tb-head"><b>Day 1</b><span>Sep 23 · Research</span></div>
+        <div class="tb-blocks">
+          <div class="tb r">Read the brief</div>
+          <div class="tb r">Interviews<span>3 age groups: 65, 35, 27</span></div>
+          <div class="tb pivot">Pivot 1<span>Interviews → JTBD + heuristics</span></div>
+          <div class="tb r big">Benchmark<span>8 mid-level apps, screen-recorded</span></div>
+        </div>
+      </div>
+      <div class="tb-day">
+        <div class="tb-head"><b>Day 2</b><span>Sep 24 · Evidence</span></div>
+        <div class="tb-blocks">
+          <div class="tb e big">Tapsi Garage walkthrough<span>81 screens</span></div>
+          <div class="tb a">Heuristic evaluation<span>Nielsen's 10</span></div>
+          <div class="tb pivot">Pivot 2<span>Found the on-site service · 16 screens</span></div>
+          <div class="tb e">Snapp study<span>45 screens, for the design system</span></div>
+        </div>
+      </div>
+      <div class="tb-day">
+        <div class="tb-head"><b>Day 3</b><span>Sep 25 · Design</span></div>
+        <div class="tb-blocks">
+          <div class="tb a">Problem &amp; priorities</div>
+          <div class="tb d big">Redesign<span>3 screens, Snapp's design system</span></div>
+          <div class="tb d">This case study</div>
+        </div>
+      </div>
+    </div>
+    <div class="tb-legend"><span class="r">Research</span><span class="e">Evidence</span><span class="a">Analysis</span><span class="d">Design</span><span class="pivot">Pivot</span></div>
+  </div>
+</section>
+
+<section class="slide" data-id="pivot1" data-ch="Research" data-title="First approach">
+  <div class="s-inner">
+    <p class="ch-label">Research</p>
+    <h2>I started with interviews, then changed approach.</h2>
+    <p class="lead">I called people aged 65, 35 and 27 and asked which app gave them the worst experience. Open interviews gave me stories, not one problem I could prove in three days.</p>
+    <div class="pivot-row">
+      <div class="ages"><span>65</span><span>35</span><span>27</span><p>Design Thinking interviews</p></div>
+      <svg class="arrow" viewBox="0 0 48 24" aria-hidden="true"><path d="M2 12h42M34 4l10 8-10 8"/></svg>
+      <div class="lenses">
+        <div class="lens-card"><b>Jobs-to-be-Done</b><p>Is the flow built for the right job?</p></div>
+        <div class="lens-card"><b>Nielsen's 10 heuristics</b><p>Where exactly does it hurt?</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-id="why" data-ch="Research" data-title="Why Tapsi Garage" data-quick>
+  <div class="s-inner">
+    <p class="ch-label">Research</p>
+    <h2>Why Tapsi Garage.</h2>
+    <div class="bench">
+      <div class="bench-row"><span class="bench-k">Avoided</span><div class="chips"><span class="chip off">Snapp</span><span class="chip off">Digikala</span><span class="chip off">Tapsi Cab</span></div><span class="bench-n">Refined for years. Hard to critique without their data.</span></div>
+      <div class="bench-row"><span class="bench-k">Benchmarked</span><div class="chips"><span class="chip">Tiwall</span><span class="chip">MrBilit</span><span class="chip">Filimo</span><span class="chip">Achareh</span><span class="chip">Torob</span><span class="chip">Okala</span><span class="chip">Jabama</span><span class="chip on">Tapsi Garage</span></div><span class="bench-n">Mid-level apps. Real problems still visible from outside.</span></div>
+    </div>
+    <div class="reasons">
+      <div><b>My domain</b><p>I work at iToll, a vehicle-services app. I know these users.</p></div>
+      <div><b>Snapp's category too</b><p>Snapp runs vehicle services for its drivers (Snapp CarFix).</p></div>
+      <div><b>Mid-maturity</b><p>It works, but its flows haven't been polished for years.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-id="bench" data-ch="Research" data-title="Benchmark recordings" data-quick>
+  <div class="s-inner">
+    <p class="ch-label">Research · Benchmark</p>
+    <h2>I recorded every flow I benchmarked.</h2>
+    <p class="lead">Short clips from my recordings, sped up. This is where the pattern first showed up.</p>
+    <div class="hscroll bench-scroll">
+      <div class="bench-clips">
+        <figure><div class="phone video"><div class="screen"><video muted loop playsinline preload="none" poster="assets/bench/achareh-carwash.jpg" data-src="assets/bench/achareh-carwash.mp4"></video></div></div><figcaption>Achareh<span>Car wash</span></figcaption></figure>
+        <figure><div class="phone video"><div class="screen"><video muted loop playsinline preload="none" poster="assets/bench/achareh-renovation.jpg" data-src="assets/bench/achareh-renovation.mp4"></video></div></div><figcaption>Achareh<span>Renovation</span></figcaption></figure>
+        <figure><div class="phone video"><div class="screen"><video muted loop playsinline preload="none" poster="assets/bench/mrbilit.jpg" data-src="assets/bench/mrbilit.mp4"></video></div></div><figcaption>MrBilit<span>Flight search</span></figcaption></figure>
+        <figure><div class="phone video"><div class="screen"><video muted loop playsinline preload="none" poster="assets/bench/tiwall.jpg" data-src="assets/bench/tiwall.mp4"></video></div></div><figcaption>Tiwall<span>Show tickets</span></figcaption></figure>
+        <figure><div class="phone video"><div class="screen"><video muted loop playsinline preload="none" poster="assets/bench/torob.jpg" data-src="assets/bench/torob.mp4"></video></div></div><figcaption>Torob<span>Product search</span></figcaption></figure>
+        <figure><div class="phone video"><div class="screen"><video muted loop playsinline preload="none" poster="assets/bench/jabama.jpg" data-src="assets/bench/jabama.mp4"></video></div></div><figcaption>Jabama<span>Villa booking</span></figcaption></figure>
+        <figure><div class="phone video"><div class="screen"><video muted loop playsinline preload="none" poster="assets/bench/tapsi-garage.jpg" data-src="assets/bench/tapsi-garage.mp4"></video></div></div><figcaption>Tapsi Garage<span>Catalog</span></figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== INSIGHT ========== -->
+<section class="slide" data-id="pattern" data-ch="Insight" data-title="Services sold like products" data-quick>
+  <div class="s-inner">
+    <p class="ch-label">Insight</p>
+    <h2>Services, sold like products.</h2>
+    <p class="lead">Batteries, tyres and brake pads share one product card. Getting it installed is a small grey word under the price: <bdi class="fa">«تعویض»</bdi>.</p>
+    <div class="s-visual trio">
+      <figure><div class="spot" data-img="S16" data-r="405,695,482,732" data-tone="s2" data-alt="Battery grid"></div><figcaption>Batteries</figcaption></figure>
+      <figure><div class="spot" data-img="S80" data-r="380,695,505,732" data-tone="s2" data-alt="Tyre grid"></div><figcaption>Tyres</figcaption></figure>
+      <figure><div class="spot" data-img="S79" data-r="55,665,240,700" data-tone="s2" data-alt="Parts grid"></div><figcaption>Brake pads &amp; parts</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-id="sos" data-ch="Insight" data-title="Pivot 2: there is an SOS">
+  <div class="s-inner split">
+    <div class="s-text">
+      <p class="ch-label">Insight</p>
+      <h2>I was wrong once: there is an SOS.</h2>
+      <p class="lead">My first draft said the stranded driver was ignored. Then I found <bdi class="fa">«تعویض باتری در محل»</bdi> under <bdi class="fa">«خدمات در محل»</bdi> and walked it too.</p>
+      <p class="lead strong">It exists. It just doesn't act like one.</p>
+    </div>
+    <div class="s-visual pair">
+      <figure><div class="spot" data-img="S18" data-r="378,700,582,780" data-tone="s3" data-alt="«خدمات در محل» on the home screen"></div><figcaption>Home, next to insurance and fines</figcaption></figure>
+      <figure><div class="spot" data-img="O16" data-r="23,712,568,882" data-tone="s3" data-alt="On-site battery replacement"></div><figcaption>One level down</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-id="users" data-ch="Insight" data-title="Two users, two jobs" data-quick>
+  <div class="s-inner">
+    <p class="ch-label">Insight · Jobs-to-be-Done</p>
+    <h2>Same product, two different jobs.</h2>
+    <p class="lead">I gave both situations equal priority.</p>
+    <div class="users">
+      <article class="user em">
+        <span class="user-k">Emergency</span>
+        <h3>Stuck on the road</h3>
+        <p class="story"><b>When</b> my car won't start and I'm stuck on the road, <b>I want</b> someone to come and get it running, <b>so I can</b> get back on my way without knowing anything about batteries.</p>
+        <p class="needs"><span>Needs</span>Help where the car is · One decision · How soon</p>
+      </article>
+      <article class="user pl">
+        <span class="user-k">Planned</span>
+        <h3>Replacing it before it dies</h3>
+        <p class="story"><b>When</b> my battery is getting weak, <b>I want</b> the right battery for my car at a fair price, installed when it suits me, <b>so I don't</b> end up stranded later.</p>
+        <p class="needs"><span>Needs</span>Certainty it fits · Honest comparison · My time</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== EVIDENCE ========== -->
+<section class="slide" data-id="pathA" data-ch="Evidence" data-title="Path A, screen by screen">
+  <div class="s-inner wide">
+    <p class="ch-label">Evidence · Screen-by-screen JTBD</p>
+    <h2>Path A: the catalog.</h2>
+    <p class="lead">What each screen is doing, and whether that serves each user.</p>
+    <div class="legend"><span class="ok">Serves</span><span class="mid">Partly</span><span class="no">Fails</span></div>
+  </div>
+  <div class="hscroll">
+    <div class="flow">
+      <div class="step"><div class="phone" data-img="S18"></div><p class="st"><b>A1</b> Home</p><p class="sj">Point me to a category</p><ul class="vd"><li class="no"><span>Emergency</span>Nothing says "my car won't start".</li><li class="mid"><span>Planned</span>The battery hides under <bdi class="fa">«برق خودرو»</bdi>.</li></ul></div>
+      <div class="step"><div class="phone" data-img="S16"></div><p class="st"><b>A2</b> Category</p><p class="sj">Show me batteries</p><ul class="vd"><li class="no"><span>Emergency</span>A grid of prices and discounts.</li><li class="no"><span>Planned</span>Ignores the car I already saved.</li></ul></div>
+      <div class="step"><div class="phone" data-img="S19"></div><p class="st"><b>A3</b> Pick your car</p><p class="sj">Identify my car</p><ul class="vd"><li class="no"><span>Emergency</span>Scrolling trims on the roadside.</li><li class="mid"><span>Planned</span>Works, but it's a memory test.</li></ul></div>
+      <div class="step"><div class="phone" data-img="S03"></div><p class="st"><b>A4</b> Filtered list</p><p class="sj">Compare batteries that fit</p><ul class="vd"><li class="no"><span>Emergency</span>Comparing amps, right now?</li><li class="ok"><span>Planned</span>Filtered once the car is set.</li></ul></div>
+      <div class="step"><div class="phone" data-img="S15"></div><p class="st"><b>A5</b> Product</p><p class="sj">Tell me how I get it</p><ul class="vd"><li class="no"><span>Emergency</span>Only option: drive to a shop.</li><li class="mid"><span>Planned</span>Fit is buried in a text wall.</li></ul></div>
+      <div class="step"><div class="phone" data-img="S12"></div><p class="st"><b>A6</b> Place &amp; time</p><p class="sj">Pick where and when</p><ul class="vd"><li class="no"><span>Emergency</span>A shop visit, not help coming.</li><li class="ok"><span>Planned</span>Clear slots from today.</li></ul></div>
+      <div class="step"><div class="phone" data-img="S08"></div><p class="st"><b>A7</b> Cart</p><p class="sj">Confirm what I'm buying</p><ul class="vd"><li class="no"><span>Emergency</span>Still, no one is coming.</li><li class="no"><span>Planned</span>No check against my car.</li></ul></div>
+      <div class="step"><div class="phone" data-img="S07"></div><p class="st"><b>A8</b> Payment</p><p class="sj">Take my payment</p><ul class="vd"><li class="mid"><span>Emergency</span>Fine, but eight screens late.</li><li class="ok"><span>Planned</span>Clear, with installments.</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-id="pathB" data-ch="Evidence" data-title="Path B, screen by screen">
+  <div class="s-inner wide">
+    <p class="ch-label">Evidence · Screen-by-screen JTBD</p>
+    <h2>Path B: the on-site service.</h2>
+    <p class="lead">The same questions, on the path built for help.</p>
+    <div class="legend"><span class="ok">Serves</span><span class="mid">Partly</span><span class="no">Fails</span></div>
+  </div>
+  <div class="hscroll">
+    <div class="flow">
+      <div class="step"><div class="phone" data-img="S18"></div><p class="st"><b>B1</b> Home</p><p class="sj">Point me to on-site help</p><ul class="vd"><li class="no"><span>Emergency</span>Sits next to insurance and fines.</li><li class="mid"><span>Planned</span>Findable if you know it exists.</li></ul></div>
+      <div class="step"><div class="phone" data-img="O16"></div><p class="st"><b>B2</b> On-site services</p><p class="sj">Offer on-site services</p><ul class="vd"><li class="mid"><span>Emergency</span>Clear, but a level too deep.</li><li class="ok"><span>Planned</span>At-home replacement, in Tehran.</li></ul></div>
+      <div class="step"><div class="phone" data-img="O15"></div><p class="st"><b>B3</b> Your details</p><p class="sj">Who, when, where</p><ul class="vd"><li class="no"><span>Emergency</span>National ID first, then a time window.</li><li class="mid"><span>Planned</span>Booking ahead is fine.</li></ul></div>
+      <div class="step"><div class="phone" data-img="O14"></div><p class="st"><b>B4</b> Location</p><p class="sj">Where are you?</p><ul class="vd"><li class="mid"><span>Emergency</span>"I'm stranded" is a small checkbox.</li><li class="ok"><span>Planned</span>Clear map and address.</li></ul></div>
+      <div class="step"><div class="phone" data-img="O10"></div><p class="st"><b>B5</b> Your car</p><p class="sj">Identify the car</p><ul class="vd"><li class="no"><span>Emergency</span>Four lists to name a car.</li><li class="mid"><span>Planned</span>Doesn't know the saved car.</li></ul></div>
+      <div class="step"><div class="phone" data-img="O07"></div><p class="st"><b>B6</b> Battery</p><p class="sj">Pick one that fits</p><ul class="vd"><li class="no"><span>Emergency</span>7.9M vs 9.1M Toman, mid-breakdown.</li><li class="ok"><span>Planned</span>Labelled "fits your car".</li></ul></div>
+      <div class="step"><div class="phone" data-img="O06"></div><p class="st"><b>B7</b> Accessories</p><p class="sj">Sell extras</p><ul class="vd"><li class="no"><span>Emergency</span>A forced stop for covers and cables.</li><li class="mid"><span>Planned</span>Skippable, still a stop.</li></ul></div>
+      <div class="step"><div class="phone" data-img="O01"></div><p class="st"><b>B8</b> Payment</p><p class="sj">Take my payment</p><ul class="vd"><li class="mid"><span>Emergency</span>8.2M Toman on a "demo" page.</li><li class="mid"><span>Planned</span>Clear, same "demo" page.</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-id="score" data-ch="Evidence" data-title="JTBD summary" data-quick>
+  <div class="s-inner">
+    <p class="ch-label">Evidence · Screen-by-screen JTBD</p>
+    <h2>Neither path treats the emergency as urgent.</h2>
+    <p class="lead">I walked both paths and asked, on every screen, whether it serves each user.</p>
+    <div class="score" id="score"></div>
+    <div class="legend"><span class="ok">Serves</span><span class="mid">Partly</span><span class="no">Fails</span></div>
+  </div>
+</section>
+
+<section class="slide" data-id="heuristics" data-ch="Evidence" data-title="Heuristic evaluation" data-quick>
+  <div class="s-inner">
+    <p class="ch-label">Evidence · Heuristic evaluation</p>
+    <h2>22 findings, all 10 heuristics.</h2>
+    <p class="lead">Every screen I captured, checked against Nielsen's heuristics and rated on his 0–4 severity scale.</p>
+    <div class="hmatrix" id="hmatrix"></div>
+    <div class="legend sev"><span class="s3">3 · Major</span><span class="s2">2 · Minor</span><span class="s1">1 · Cosmetic</span><span class="g">Works well</span></div>
+  </div>
+</section>
+
+<section class="slide" data-id="majorC" data-ch="Evidence" data-title="Major: catalog" data-quick>
+  <div class="s-inner">
+    <p class="ch-label">Evidence · Major issues</p>
+    <h2>The catalog: three major issues.</h2>
+    <p class="lead">These mostly hurt the planned user. Click any screen to inspect it.</p>
+    <div class="fgrid three">
+      <figure class="fcard"><div class="spot" data-img="S16" data-r="23,262,570,360" data-tone="s3" data-alt="Category asks for a car again"></div><figcaption><span class="fmeta"><b>C1</b><i class="s3">Major</i>H6 Recognition</span><strong>Your saved car is ignored</strong><span>It asks for a car it already knows.</span></figcaption></figure>
+      <figure class="fcard"><div class="spot" data-img="S26" data-r="15,250,580,700" data-tone="s3" data-alt="Compatibility paragraph"></div><figcaption><span class="fmeta"><b>C2</b><i class="s3">Major</i>H10 Help</span><strong>Compatibility is a cypher</strong><span>Dozens of car models in one comma-separated paragraph.</span></figcaption></figure>
+      <figure class="fcard"><div class="spot" data-img="S08" data-r="70,315,585,480" data-tone="s3" data-alt="Cart with no fit check"></div><figcaption><span class="fmeta"><b>C3</b><i class="s3">Major</i>H5 Error prevention</span><strong>Nothing stops the wrong battery</strong><span>A battery outside my car's list, accepted without a warning.</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-id="majorO" data-ch="Evidence" data-title="Major: on-site service" data-quick>
+  <div class="s-inner">
+    <p class="ch-label">Evidence · Major issues</p>
+    <h2>The on-site service: four major issues.</h2>
+    <p class="lead">These mostly hurt the emergency user.</p>
+    <div class="fgrid four">
+      <figure class="fcard"><div class="spot" data-img="S18" data-r="378,700,582,780" data-tone="s3" data-alt="«خدمات در محل» on home"></div><figcaption><span class="fmeta"><b>S1</b><i class="s3">Major</i>H7 Efficiency</span><strong>Hidden, and never linked</strong><span>Next to insurance and fines. The catalog never mentions it.</span></figcaption></figure>
+      <figure class="fcard"><div class="spot" data-img="O14" data-r="120,962,590,1045" data-tone="s3" data-alt="'I'm stranded' checkbox"></div><figcaption><span class="fmeta"><b>S2</b><i class="s3">Major</i>H2 Real world</span><strong>"I'm stranded" is a checkbox</strong><span>Meant only for when you have no exact address.</span></figcaption></figure>
+      <figure class="fcard"><div class="spot" data-img="O15" data-r="12,688,585,768" data-tone="s3" data-alt="Time window field"></div><figcaption><span class="fmeta"><b>S3</b><i class="s3">Major</i>H1 System status</span><strong>Booked like a delivery</strong><span>A time window. It never says how soon help arrives.</span></figcaption></figure>
+      <figure class="fcard"><div class="spot" data-img="O01" data-r="0,70,591,140" data-tone="s3" data-alt="demo.mrbatri.com address bar"></div><figcaption><span class="fmeta"><b>S4</b><i class="s3">Major</i>H4 Consistency</span><strong>You pay on a "demo" page</strong><span>8.2M Toman on demo.mrbatri.com, outside the app.</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-id="minor" data-ch="Evidence" data-title="Minor issues">
+  <div class="s-inner">
+    <p class="ch-label">Evidence · Minor issues</p>
+    <h2>Seven minor issues in the two paths.</h2>
+    <div class="fgrid small">
+      <figure class="fcard"><div class="spot" data-img="S20" data-r="38,915,570,1100" data-tone="s2"></div><figcaption><span class="fmeta"><b>C4</b><i class="s2">Minor</i>H10</span><strong>Old-battery rule assumes you know amps</strong></figcaption></figure>
+      <figure class="fcard"><div class="spot" data-img="S27" data-r="25,810,575,1225" data-tone="s2"></div><figcaption><span class="fmeta"><b>C5</b><i class="s2">Minor</i>H10</span><strong>A description that says nothing specific</strong></figcaption></figure>
+      <figure class="fcard"><div class="spot" data-img="S12" data-r="0,138,591,176" data-tone="s2"></div><figcaption><span class="fmeta"><b>C6</b><i class="s2">Minor</i>H1</span><strong>A progress bar that stands still</strong></figcaption></figure>
+      <figure class="fcard"><div class="spot" data-img="S10" data-r="0,700,591,1065" data-tone="s2"></div><figcaption><span class="fmeta"><b>C7</b><i class="s2">Minor</i>H8</span><strong>A second battery as the cross-sell</strong></figcaption></figure>
+      <figure class="fcard"><div class="spot" data-img="O15" data-r="10,350,590,662" data-tone="s2"></div><figcaption><span class="fmeta"><b>S5</b><i class="s2">Minor</i>H7</span><strong>National ID before help</strong></figcaption></figure>
+      <figure class="fcard"><div class="spot" data-img="O10" data-r="40,330,560,1165" data-tone="s2"></div><figcaption><span class="fmeta"><b>S6</b><i class="s2">Minor</i>H6</span><strong>Four lists to name your car</strong></figcaption></figure>
+      <figure class="fcard"><div class="spot" data-img="O06" data-r="25,590,568,720" data-tone="s2"></div><figcaption><span class="fmeta"><b>S7</b><i class="s2">Minor</i>H8</span><strong>A jump cable "for emergencies", upsold mid-breakdown</strong></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-id="appwide" data-ch="Evidence" data-title="App-wide issues">
+  <div class="s-inner">
+    <p class="ch-label">Evidence · App-wide</p>
+    <h2>Eight app-wide issues, outside both paths.</h2>
+    <div class="fgrid small">
+      <figure class="fcard"><div class="spot" data-img="S62" data-r="28,345,562,470" data-tone="s2"></div><figcaption><span class="fmeta"><b>A1</b><i class="s2">Minor</i>H9</span><strong>"Required" while you're typing in it</strong></figcaption></figure>
+      <figure class="fcard"><div class="spot" data-img="S25" data-r="75,340,520,1000" data-tone="s2"></div><figcaption><span class="fmeta"><b>A2</b><i class="s2">Minor</i>H2</span><strong>A raw developer error</strong></figcaption></figure>
+      <figure class="fcard"><div class="spot" data-img="S21" data-r="100,88,498,690" data-tone="s2"></div><figcaption><span class="fmeta"><b>A3</b><i class="s2">Minor</i>H8</span><strong>Five identical toasts</strong></figcaption></figure>
+      <figure class="fcard"><div class="spot" data-img="S40" data-r="25,350,570,795" data-tone="s2" data-ghost="ثبت دوباره این سفارش"></div><figcaption><span class="fmeta"><b>A4</b><i class="s2">Minor</i>H7</span><strong>No "order again" for car wash</strong></figcaption></figure>
+      <figure class="fcard"><div class="spot" data-img="S23" data-r="95,88,505,755" data-tone="s1"></div><figcaption><span class="fmeta"><b>A5</b><i class="s1">Cosmetic</i>H4</span><strong>Same error, two wordings</strong></figcaption></figure>
+      <figure class="fcard"><div class="spot" data-img="S36" data-r="215,590,375,760" data-tone="s1"></div><figcaption><span class="fmeta"><b>A6</b><i class="s1">Cosmetic</i>H4</span><strong>Three illustration styles</strong></figcaption></figure>
+      <figure class="fcard"><div class="spot" data-img="S10" data-r="75,88,512,215" data-tone="s1"></div><figcaption><span class="fmeta"><b>A7</b><i class="s1">Cosmetic</i>H4</span><strong>A two-line toast that vanishes</strong></figcaption></figure>
+      <figure class="fcard"><div class="spot" data-img="S67" data-r="20,85,500,690" data-tone="s1"></div><figcaption><span class="fmeta"><b>A8</b><i class="s1">Cosmetic</i>H6</span><strong>Search forgets everything</strong></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-id="good" data-ch="Evidence" data-title="What works well">
+  <div class="s-inner">
+    <p class="ch-label">Evidence · What works</p>
+    <h2>What works, and what I kept.</h2>
+    <div class="fgrid small">
+      <figure class="fcard"><div class="spot" data-img="O07" data-r="24,410,562,474" data-tone="g"></div><figcaption><span class="fmeta"><b>H6</b></span><strong>"Fits your car" label on the on-site path</strong></figcaption></figure>
+      <figure class="fcard"><div class="spot" data-img="O15" data-r="28,262,586,332" data-tone="g"></div><figcaption><span class="fmeta"><b>H1</b></span><strong>A clear three-step stepper</strong></figcaption></figure>
+      <figure class="fcard"><div class="spot" data-img="S68" data-r="0,140,591,880" data-tone="g"></div><figcaption><span class="fmeta"><b>H1</b></span><strong>Honest skeleton loaders</strong></figcaption></figure>
+      <figure class="fcard"><div class="spot" data-img="S34" data-r="30,625,580,748" data-tone="g"></div><figcaption><span class="fmeta"><b>H10</b></span><strong>OTP timer and spam hint</strong></figcaption></figure>
+      <figure class="fcard"><div class="spot" data-img="S37" data-r="12,832,580,1232" data-tone="g"></div><figcaption><span class="fmeta"><b>H5</b></span><strong>Logout asks first</strong></figcaption></figure>
+      <figure class="fcard"><div class="spot" data-img="S29" data-r="92,998,502,1064" data-tone="g"></div><figcaption><span class="fmeta"><b>H9</b></span><strong>Undo after removing from cart</strong></figcaption></figure>
+      <figure class="fcard"><div class="spot" data-img="S13" data-r="0,72,120,160" data-tone="g"></div><figcaption><span class="fmeta"><b>H3</b></span><strong>A way out on every step</strong></figcaption></figure>
+      <figure class="fcard"><div class="spot" data-img="S18" data-r="0,280,591,605" data-tone="g"></div><figcaption><span class="fmeta"><b>H8</b></span><strong>A calm home, no promo overload</strong></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PROBLEM ========== -->
+<section class="slide" data-id="root" data-ch="Problem" data-title="Root cause" data-quick>
+  <div class="s-inner split">
+    <div class="s-text">
+      <p class="ch-label">Problem</p>
+      <h2>Every major issue has the same root.</h2>
+      <p class="lead">JTBD said both paths are built for the wrong job. The heuristics show what that costs, screen by screen.</p>
+      <p class="note">App-wide issues (A1–A8) are real, but they have other causes.</p>
+    </div>
+    <div class="root" id="root">
+      <div class="root-core"><span>Root cause</span><strong>Built as a purchase, not as help</strong></div>
+      <ul class="root-nodes">
+        <li><b>C1</b>Saved car ignored</li>
+        <li><b>C2</b>Compatibility cypher</li>
+        <li><b>C3</b>No fit check</li>
+        <li><b>S1</b>SOS hidden</li>
+        <li><b>S2</b>"Stranded" checkbox</li>
+        <li><b>S3</b>No ETA</li>
+        <li><b>S4</b>"Demo" payment</li>
+        <li><b>S7</b>Upsell</li>
+      </ul>
+      <svg class="root-lines" viewBox="0 0 600 600" aria-hidden="true"></svg>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-id="statement" data-ch="Problem" data-title="What, why, how" data-quick>
+  <div class="s-inner narrow">
+    <p class="ch-label">Problem</p>
+    <h2>What, why, how.</h2>
+    <dl class="wwh">
+      <div><dt>What</dt><dd>Two ways to get a battery. The catalog sells it like engine oil and sends you to a shop. The on-site service is hidden, runs on a partner's web page, and books a time window.</dd></div>
+      <div><dt>Why</dt><dd>Both were built as purchases, product first. For a battery, the situation comes first: a dead car needs help fast, a planned swap needs certainty it fits.</dd></div>
+      <div><dt>How</dt><dd>One entry that asks what's going on. An emergency path built for speed. A planned path that starts from your car and joins shop and at-home installation.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="slide" data-id="okr" data-ch="Problem" data-title="How I'd measure it" data-quick>
+  <div class="s-inner">
+    <p class="ch-label">Problem · OKR</p>
+    <h2>How I'd measure it.</h2>
+    <div class="okr">
+      <div class="okr-o"><span>Objective</span><p>Make battery replacement feel like getting help, not shopping for parts.</p></div>
+      <div class="okr-krs">
+        <div><span>Key result · Emergency</span><p>Time from opening the app to a confirmed help request</p><i>Target: under 1 minute</i></div>
+        <div><span>Key result · Planned</span><p>Orders where the battery doesn't fit the saved car</p><i>Target: close to zero</i></div>
+        <div><span>Key result · Both</span><p>Share of battery orders reaching the on-site service</p><i>Target: above today</i></div>
+      </div>
+      <div class="okr-i"><span>Initiatives</span><p>Situation-first entry · Emergency request · Car-first battery finder</p></div>
+    </div>
+    <p class="note">I don't have Tapsi Garage's data. These are targets to validate, not results.</p>
+  </div>
+</section>
+
+<!-- ========== SOLUTION ========== -->
+<section class="slide" data-id="redesign" data-ch="Solution" data-title="The redesign" data-quick>
+  <div class="s-inner">
+    <p class="ch-label">Solution</p>
+    <h2>Ask about the situation, not the product.</h2>
+    <div class="screens">
+      <figure class="screen-card">
+        <div class="phone redesign"><img src="assets/redesign/01-entry.png" alt="Screen 1: situation-first entry" onerror="this.parentElement.classList.add('is-empty')"><span class="ph">Screen 1</span></div>
+        <figcaption><strong>What's going on?</strong><span>"My car won't start" or "I want to replace my battery". The car comes from the profile.</span><span class="fixes">Fixes S1 · C1</span></figcaption>
+      </figure>
+      <figure class="screen-card">
+        <div class="phone redesign"><img src="assets/redesign/02-emergency.png" alt="Screen 2: emergency help request" onerror="this.parentElement.classList.add('is-empty')"><span class="ph">Screen 2</span></div>
+        <figcaption><strong>Help where the car is</strong><span>GPS location, one action, arrival time and price before confirming. No ID, no upsell.</span><span class="fixes">Fixes S2 · S3 · S5 · S7</span></figcaption>
+      </figure>
+      <figure class="screen-card">
+        <div class="phone redesign"><img src="assets/redesign/03-finder.png" alt="Screen 3: car-first battery finder" onerror="this.parentElement.classList.add('is-empty')"><span class="ph">Screen 3</span></div>
+        <figcaption><strong>Only batteries that fit</strong><span>Starts from the saved car. Install at a shop or at home, in one place.</span><span class="fixes">Fixes C2 · C3 · C5 · C7</span></figcaption>
+      </figure>
+    </div>
+    <p class="note">Assumption: on-site technicians can be dispatched right away, instead of in a time window. That's a question for operations.</p>
+  </div>
+</section>
+
+<section class="slide" data-id="leftout" data-ch="Solution" data-title="Left out on purpose">
+  <div class="s-inner">
+    <p class="ch-label">Solution · Scope</p>
+    <h2>What I left out, on purpose.</h2>
+    <div class="list-grid">
+      <div><b>App-wide polish</b><p>A2–A8. Real, but severity 1–2 and outside both paths.</p></div>
+      <div><b>Form validation</b><p>A1 needs a pass across every form, not one flow.</p></div>
+      <div><b>The partner web page</b><p>Moving demo.mrbatri.com into the app is an engineering decision.</p></div>
+      <div><b>Car wash</b><p>The same story, and A4, but a different flow.</p></div>
+      <div><b>Dispatch and pricing</b><p>A business decision. I designed the experience and flagged it.</p></div>
+      <div><b>A new visual skin</b><p>The brief asks for a real problem, not a new coat of paint.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== EXTRAS ========== -->
+<section class="slide" data-id="snapp" data-ch="Extras" data-title="Snapp's design language">
+  <div class="s-inner">
+    <p class="ch-label">Bonus · Design system</p>
+    <h2>Learning Snapp's design language.</h2>
+    <p class="lead">Snapp doesn't publish its system, so I studied 45 screens of the Snapp app and read the tokens from its web app's CSS. My redesign follows these.</p>
+    <div class="fgrid four">
+      <figure class="fcard"><div class="spot" data-img="N17" data-r="0,1130,525,1210" data-tone="g"></div><figcaption><strong>Primary action</strong><span>Green #22A958, full width, one per screen</span></figcaption></figure>
+      <figure class="fcard"><div class="spot" data-img="N43" data-r="0,85,591,300" data-tone="v"></div><figcaption><strong>Bottom sheets</strong><span>Rounded top, violet #575EFF selection</span></figcaption></figure>
+      <figure class="fcard"><div class="spot" data-img="N41" data-r="0,160,591,400" data-tone="v"></div><figcaption><strong>Flat lists</strong><span>Dividers, not cards. Violet toggles</span></figcaption></figure>
+      <figure class="fcard"><div class="spot" data-img="N44" data-r="0,140,591,215" data-tone="g"></div><figcaption><strong>Tabs</strong><span>Underline for the active tab</span></figcaption></figure>
+    </div>
+    <div class="tokens">
+      <span class="tk"><i style="background:#22A958"></i>#22A958</span>
+      <span class="tk"><i style="background:#575EFF"></i>#575EFF</span>
+      <span class="tk"><i style="background:#DF1D17"></i>#DF1D17</span>
+      <span class="tk"><i style="background:#252A3C"></i>#252A3C</span>
+      <span class="tk"><i style="background:#686C79"></i>#686C79</span>
+      <span class="tk txt">IRANSansX, Persian digits</span>
+      <span class="tk txt">4px spacing grid</span>
+      <span class="tk txt">Radius 8 · 12 · 24</span>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-id="a11y" data-ch="Extras" data-title="Accessibility">
+  <div class="s-inner">
+    <p class="ch-label">Bonus · Accessibility</p>
+    <h2>Designed for a bad moment.</h2>
+    <p class="lead">A stranded driver may be stressed, outdoors, in bright sun, with one hand free.</p>
+    <div class="list-grid four">
+      <div><b>48px+ targets</b><p>Snapp's own inputs are 56px.</p></div>
+      <div><b>4.5:1 contrast</b><p>WCAG AA, readable in sunlight.</p></div>
+      <div><b>Thumb zone</b><p>The main action in the lower third.</p></div>
+      <div><b>Not color alone</b><p>Icon + text for every state.</p></div>
+      <div><b>Validate after</b><p>Check a field when you leave it (A1).</p></div>
+      <div><b>Plain words</b><p>No "amp" without saying what it means.</p></div>
+      <div><b>RTL, Persian digits</b><p>Like Snapp, everywhere.</p></div>
+      <div><b>Reduced motion</b><p>Respected, like this deck does.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-id="next" data-ch="Extras" data-title="With more time">
+  <div class="s-inner narrow">
+    <p class="ch-label">Bonus · Next steps</p>
+    <h2>With more time, I'd…</h2>
+    <ol class="next">
+      <li><b>Test with both users.</b> Five who've been stranded, five planning a swap.</li>
+      <li><b>Book the on-site service by day.</b> I walked it at 10 pm; I'd check same-day slots.</li>
+      <li><b>Ask why it runs on a partner page</b> and what bringing it in-app takes.</li>
+      <li><b>Talk to operations</b> about dispatching technicians right away.</li>
+      <li><b>Set real baselines</b> for the three key results.</li>
+    </ol>
+  </div>
+</section>
+
+<section class="slide" data-id="ai" data-ch="Extras" data-title="How I used AI" data-quick>
+  <div class="s-inner narrow">
+    <p class="ch-label">Transparency</p>
+    <h2>How I used AI.</h2>
+    <p class="lead">The brief allows it and asks me to document it.</p>
+    <div class="two-col">
+      <div><b>AI helped with</b><ul><li>Reading Snapp's design tokens from its web app's CSS</li><li>Pressure-testing my framing and severity ratings</li><li>Proofreading my English</li><li>Building this deck from my screenshots and notes</li></ul></div>
+      <div class="mine"><b>What stayed mine</b><ul><li>The interviews and both pivots</li><li>Choosing the app and the flows</li><li>Walking and recording 142 screens</li><li>The findings and the design decisions</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-id="appendix" data-ch="Extras" data-title="All screens">
+  <div class="s-inner">
+    <p class="ch-label">Appendix</p>
+    <h2>All 97 Tapsi Garage screens I captured.</h2>
+    <div class="tabs" role="tablist">
+      <button type="button" role="tab" aria-selected="true" data-gal="all">All · 97</button>
+      <button type="button" role="tab" aria-selected="false" data-gal="O">On-site service · 16</button>
+      <button type="button" role="tab" aria-selected="false" data-gal="S">Catalog &amp; account · 81</button>
+    </div>
+    <div class="gallery" id="gallery"></div>
+    <p class="note">Personal information is blurred.</p>
+  </div>
+</section>
+
+<!-- ========== END ========== -->
+<section class="slide" data-id="thanks" data-ch="End" data-title="Thanks" data-quick>
+  <div class="s-inner narrow center">
+    <p class="ch-label">End</p>
+    <h2 class="big">Thanks for reading.</h2>
+    <p class="lead">The Figma file has the three screens and their specs.</p>
+    <div class="actions">
+      <a class="btn" href="#" id="figmaLink" target="_blank" rel="noopener">Open the Figma file</a>
+      <button type="button" class="btn line" id="toFull" data-switch="full">See the full case study</button>
+      <button type="button" class="btn line" id="restart">Back to start</button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="bar bottom" id="bottombar">
+  <button type="button" class="nav-btn" id="prev" aria-label="Previous slide"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+  <nav class="story" id="story" aria-label="Story line"></nav>
+  <button type="button" class="nav-btn next" id="next" aria-label="Next slide"><span id="nextLabel"></span><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+</footer>
+
+<!-- ================= OVERLAYS ================= -->
+<div class="overlay" id="index" role="dialog" aria-modal="true" aria-label="All slides" hidden>
+  <div class="panel">
+    <div class="panel-head"><b>All slides</b><button type="button" class="x" data-close aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+    <div id="indexList"></div>
+  </div>
+</div>
+
+<div class="overlay lb" id="lightbox" role="dialog" aria-modal="true" aria-label="Screen detail" hidden>
+  <button type="button" class="x lb-x" data-close aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <div class="lb-body" id="lbBody"></div>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
