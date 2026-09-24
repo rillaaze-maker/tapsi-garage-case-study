@@ -298,6 +298,9 @@
   }
 
   function updateChrome() {
+    const slide = list[idx];
+    const hasScreens = !!slide.querySelector('.phone[data-lb], .spot, .thumb, .g-item, .phone.redesign:not(.is-empty)');
+    $('#zoomTip').hidden = !hasScreens;
     $('#counter').textContent = `${idx + 1} / ${list.length}`;
     $('#prev').disabled = idx === 0;
     $('#next').disabled = idx === list.length - 1;
@@ -409,7 +412,11 @@
   let lastFocus = null;
   function openOverlay(o) { lastFocus = document.activeElement; o.hidden = false; $('.x', o)?.focus(); }
   function closeOverlay(o) { if (o.hidden) return; o.hidden = true; lastFocus?.focus?.({ preventScroll: true }); }
-  [index, lb].forEach(o => o.addEventListener('click', e => { if (e.target === o || e.target.closest('[data-close]')) closeOverlay(o); }));
+  index.addEventListener('click', e => { if (e.target === index || e.target.closest('[data-close]')) closeOverlay(index); });
+  // screen viewer: anything outside the phone, the zoom and the caption closes it
+  lb.addEventListener('click', e => {
+    if (e.target.closest('[data-close]') || !e.target.closest('.phone, .lb-zoom, .lb-side p')) closeOverlay(lb);
+  });
 
   $('#openIndex').addEventListener('click', () => {
     const box = $('#indexList');

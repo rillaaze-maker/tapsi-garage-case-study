@@ -47,6 +47,16 @@ kbd { font: 500 12px/1 var(--font); padding: 3px 6px; border: 1px solid var(--li
 :focus-visible { outline: 2px solid var(--green); outline-offset: 2px; border-radius: 6px; }
 ::selection { background: var(--green-tint); }
 
+/* ============ ZOOM TIP ============ */
+.zoom-tip { position: fixed; z-index: 15; right: 20px; bottom: calc(var(--bottom) + 12px); margin: 0; display: inline-flex; align-items: center; gap: 7px; padding: 7px 12px; border-radius: 99px; background: var(--bg); border: 1px solid var(--line-2); box-shadow: 0 4px 14px -6px rgba(20,23,26,.25); font-size: 13px; font-weight: 500; color: var(--ink-2); pointer-events: none; }
+.zoom-tip[hidden], body.at-landing .zoom-tip { display: none; }
+.zoom-tip svg { width: 15px; height: 15px; color: var(--green-ink); }
+.zoom-tip .tip-tap { display: none; }
+@media (hover: none) { .zoom-tip .tip-click { display: none; } .zoom-tip .tip-tap { display: inline; } }
+@media (max-width: 900px) { .zoom-tip { right: 50%; transform: translateX(50%); bottom: calc(var(--bottom) + 8px); font-size: 12px; padding: 5px 10px; } }
+.overlay.lb { cursor: zoom-out; }
+.overlay.lb .phone, .overlay.lb .lb-zoom, .overlay.lb .lb-side p { cursor: default; }
+
 /* ============ LOADER ============ */
 .loader { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; background: var(--bg); transition: opacity .4s ease; }
 .loader.done { opacity: 0; pointer-events: none; }
@@ -69,7 +79,7 @@ h1 { margin: 0; font-size: clamp(40px, 5.4vw, 64px); line-height: 1.04; letter-s
 .choices { margin-top: 36px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 580px; }
 .choice { display: flex; flex-direction: column; gap: 8px; text-align: left; padding: 20px; border: 1px solid var(--line-2); border-radius: var(--r); background: var(--bg); transition: border-color .2s, box-shadow .2s, transform .2s var(--ease); }
 .choice:hover { border-color: var(--ink); box-shadow: 0 8px 24px -12px rgba(20,23,26,.25); transform: translateY(-2px); }
-.choice-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 8px; }
+.choice-top { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
 .choice-name { font-size: 18px; font-weight: 600; }
 .choice-meta { font-size: 13px; color: var(--ink-3); white-space: nowrap; }
 .choice-desc { font-size: 14.5px; color: var(--ink-2); line-height: 1.45; }
