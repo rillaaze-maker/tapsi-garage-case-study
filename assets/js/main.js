@@ -10,10 +10,10 @@
 
   function loadScreens() {
     return new Promise((resolve, reject) => {
-      const inject = code => { const s = document.createElement('script'); if (code) s.textContent = code; else s.src = 'assets/screens.js'; s.onload = resolve; s.onerror = reject; document.head.appendChild(s); if (code) resolve(); };
+      const inject = code => { const s = document.createElement('script'); if (code) s.textContent = code; else s.src = 'assets/screens.js?v=20260925b'; s.onload = resolve; s.onerror = reject; document.head.appendChild(s); if (code) resolve(); };
       if (location.protocol === 'file:') { inject(null); return; }
       const x = new XMLHttpRequest();
-      x.open('GET', 'assets/screens.js');
+      x.open('GET', 'assets/screens.js?v=20260925b');
       x.onprogress = e => setP(e.lengthComputable ? e.loaded / e.total : e.loaded / EST);
       x.onload = () => (x.status >= 200 && x.status < 300 ? inject(x.responseText) : reject(new Error(x.status)));
       x.onerror = reject;
@@ -266,6 +266,82 @@
     if (!document.hidden && list[idx]) playVideos(list[idx]);
   });
 
+  /* ---------- one-time coach mark: "click a screen to enlarge it" ---------- */
+  const COACH_KEY = 'tg-coach-done';
+  const coachSeen = () => { try { return localStorage.getItem(COACH_KEY) === '1'; } catch { return false; } };
+  let coachT = null, coachEl = null, coachTarget = null;
+
+  function maybeCoach(slide) {
+    clearTimeout(coachT);
+    if (coachEl || coachSeen()) return;
+    coachT = setTimeout(() => {
+      if (list[idx] !== slide || !lb.hidden || !index.hidden) return;
+      const target = slide.querySelector('.spot .phone, .phone[data-lb]');
+      if (target) showCoach(target);
+    }, reduced ? 200 : 1100);
+  }
+
+  function holePath(r, pad, rad) {
+    const x = r.left - pad, y = r.top - pad, w = r.width + pad * 2, h = r.height + pad * 2, R = Math.min(rad + pad, w / 2);
+    const W = innerWidth, Hh = innerHeight;
+    return `path(evenodd, 'M0 0 H${W} V${Hh} H0 Z M${x + R} ${y} H${x + w - R} A${R} ${R} 0 0 1 ${x + w} ${y + R} V${y + h - R} A${R} ${R} 0 0 1 ${x + w - R} ${y + h} H${x + R} A${R} ${R} 0 0 1 ${x} ${y + h - R} V${y + R} A${R} ${R} 0 0 1 ${x + R} ${y} Z')`;
+  }
+
+  function placeCoach() {
+    if (!coachEl || !coachTarget) return;
+    const r = coachTarget.getBoundingClientRect();
+    const pad = 10, rad = parseFloat(getComputedStyle(coachTarget).borderRadius) || 28;
+    $('.coach-dim', coachEl).style.clipPath = holePath(r, pad, rad);
+    Object.assign($('.coach-ring', coachEl).style, { left: r.left - pad + 'px', top: r.top - pad + 'px', width: r.width + pad * 2 + 'px', height: r.height + pad * 2 + 'px', borderRadius: rad + pad + 'px' });
+    const card = $('.coach-card', coachEl);
+    const cw = card.offsetWidth, ch = card.offsetHeight, gap = 24;
+    let left, top;
+    if (r.left - pad - gap - cw > 12) left = r.left - pad - gap - cw;            // left of the phone
+    else if (r.right + pad + gap + cw < innerWidth - 12) left = r.right + pad + gap; // right of it
+    else left = Math.max(12, Math.min(innerWidth - cw - 12, r.left + r.width / 2 - cw / 2));
+    if (left === r.left - pad - gap - cw || left === r.right + pad + gap) top = Math.max(12, Math.min(innerHeight - ch - 12, r.top + r.height / 2 - ch / 2));
+    else top = Math.min(innerHeight - ch - 12, r.bottom + pad + 16);
+    Object.assign(card.style, { left: left + 'px', top: top + 'px' });
+  }
+
+  function showCoach(target) {
+    coachTarget = target;
+    coachEl = document.createElement('div');
+    coachEl.className = 'coach';
+    coachEl.setAttribute('role', 'dialog');
+    coachEl.setAttribute('aria-modal', 'true');
+    coachEl.setAttribute('aria-labelledby', 'coachTitle');
+    const verb = matchMedia('(hover: none)').matches ? 'Tap' : 'Click';
+    coachEl.innerHTML = `<div class="coach-dim"></div><div class="coach-ring" aria-hidden="true"></div>
+      <div class="coach-card">
+        <span class="coach-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5M11 8v6M8 11h6"/></svg></span>
+        <p class="coach-title" id="coachTitle">${verb} any screen to see it up close</p>
+        <p class="coach-text">Every phone in this case study opens large, with the problem area zoomed in.</p>
+        <button type="button" class="btn coach-ok">Got it</button>
+      </div>`;
+    document.body.appendChild(coachEl);
+    placeCoach();
+    requestAnimationFrame(() => coachEl.classList.add('on'));
+    $('.coach-ok', coachEl).focus({ preventScroll: true });
+    $('.coach-ok', coachEl).addEventListener('click', () => closeCoach());
+    $('.coach-dim', coachEl).addEventListener('click', () => closeCoach());
+  }
+
+  function closeCoach() {
+    clearTimeout(coachT);
+    if (!coachEl) return;
+    try { localStorage.setItem(COACH_KEY, '1'); } catch { /* storage unavailable: it just may show again */ }
+    const el = coachEl;
+    coachEl = null; coachTarget = null;
+    el.classList.remove('on');
+    setTimeout(() => el.remove(), 300);
+    $('#next').focus({ preventScroll: true });
+  }
+  addEventListener('resize', placeCoach);
+  // clicking the highlighted phone itself (through the hole) opens it and ends the tour
+  document.addEventListener('click', e => { if (coachEl && coachTarget && coachTarget.contains(e.target)) closeCoach(); }, true);
+  document.addEventListener('keydown', e => { if (coachEl && e.key === 'Escape') { e.stopImmediatePropagation(); closeCoach(); } }, true);
+
   function activateSpots(slide) {
     playVideos(slide);
     $$('.spot.on').forEach(s => { if (!slide.contains(s)) s.classList.remove('on'); });
@@ -293,6 +369,7 @@
     idx = i;
     requestAnimationFrame(() => { if (list[idx] === next) next.classList.add('active'); });
     activateSpots(next);
+    maybeCoach(next);
     updateChrome();
     history.replaceState(null, '', `?path=${path}#/${next.dataset.id}`);
   }

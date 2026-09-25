@@ -548,3 +548,19 @@ body.path-full #toFull { display: none; }
   .score { margin-top: 18px; gap: 8px; }
   .note { margin-top: 12px; }
 }
+
+/* ============ COACH MARK (first visit) ============ */
+.coach { position: fixed; inset: 0; z-index: 90; opacity: 0; transition: opacity .3s ease; pointer-events: none; }
+.coach-dim, .coach-card { pointer-events: auto; }
+.coach.on { opacity: 1; }
+.coach-dim { position: absolute; inset: 0; background: rgba(20,23,26,.45); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); cursor: pointer; }
+.coach-ring { position: absolute; pointer-events: none; border: 2px solid var(--green); box-shadow: 0 0 0 6px rgba(34,169,88,.25); animation: coachPulse 1.8s ease-in-out infinite; }
+@keyframes coachPulse { 50% { box-shadow: 0 0 0 12px rgba(34,169,88,.12); } }
+.coach-card { position: absolute; width: min(300px, calc(100vw - 24px)); padding: 20px; border-radius: 16px; background: var(--bg); box-shadow: 0 24px 60px -20px rgba(20,23,26,.5); transform: translateY(8px); transition: transform .35s var(--ease); }
+.coach.on .coach-card { transform: none; }
+.coach-icon { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: var(--green-tint); color: var(--green-ink); }
+.coach-icon svg { width: 20px; height: 20px; stroke-width: 2.2; }
+.coach-title { margin: 12px 0 0; font-size: 17px; font-weight: 600; line-height: 1.35; color: var(--ink); }
+.coach-text { margin: 6px 0 0; font-size: 14px; line-height: 1.5; color: var(--ink-2); }
+.coach-ok { margin-top: 16px; height: 40px; padding: 0 18px; border-radius: 10px; font-size: 14px; }
+@media (prefers-reduced-motion: reduce) { .coach-ring { animation: none; } }
