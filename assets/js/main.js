@@ -10,10 +10,10 @@
 
   function loadScreens() {
     return new Promise((resolve, reject) => {
-      const inject = code => { const s = document.createElement('script'); if (code) s.textContent = code; else s.src = 'assets/screens.js?v=20260926c'; s.onload = resolve; s.onerror = reject; document.head.appendChild(s); if (code) resolve(); };
+      const inject = code => { const s = document.createElement('script'); if (code) s.textContent = code; else s.src = 'assets/screens.js?v=20260926e'; s.onload = resolve; s.onerror = reject; document.head.appendChild(s); if (code) resolve(); };
       if (location.protocol === 'file:') { inject(null); return; }
       const x = new XMLHttpRequest();
-      x.open('GET', 'assets/screens.js?v=20260926c');
+      x.open('GET', 'assets/screens.js?v=20260926e');
       x.onprogress = e => setP(e.lengthComputable ? e.loaded / e.total : e.loaded / EST);
       x.onload = () => (x.status >= 200 && x.status < 300 ? inject(x.responseText) : reject(new Error(x.status)));
       x.onerror = reject;
@@ -342,10 +342,46 @@
   document.addEventListener('click', e => { if (coachEl && coachTarget && coachTarget.contains(e.target)) closeCoach(); }, true);
   document.addEventListener('keydown', e => { if (coachEl && e.key === 'Escape') { e.stopImmediatePropagation(); closeCoach(); } }, true);
 
+  /* ---------- grow phones into the free space of a slide (desktop only) ---------- */
+  function fitPhones(slide) {
+    const phones = $$('.phone', slide).filter(p => !p.closest('.flow, .score, .gallery'));
+    phones.forEach(p => p.style.removeProperty('--w'));
+    if (!phones.length || innerWidth <= 900) return;
+    const base = phones.map(p => p.offsetWidth);
+    const sr = slide.getBoundingClientRect();
+    const fits = () => {
+      if (slide.scrollHeight > slide.clientHeight + 1) return false;
+      const rs = phones.map(p => p.getBoundingClientRect());
+      for (let i = 0; i < rs.length; i++) {
+        const a = rs[i];
+        if (!phones[i].closest('.hscroll') && (a.left < sr.left + 12 || a.right > sr.right - 12)) return false;
+        for (let j = i + 1; j < rs.length; j++) {
+          const b = rs[j];
+          if (a.left < b.right + 10 && b.left < a.right + 10 && a.top < b.bottom && b.top < a.bottom) return false;
+        }
+      }
+      return true;
+    };
+    const set = k => phones.forEach((p, i) => p.style.setProperty('--w', Math.min(base[i] * k, 330) + 'px'));
+    let lo = 1, hi = 1.8;
+    set(hi);
+    if (fits()) return;
+    for (let n = 0; n < 7; n++) {
+      const mid = (lo + hi) / 2;
+      set(mid);
+      if (fits()) lo = mid; else hi = mid;
+    }
+    set(lo);
+  }
+  let fitT = null;
+  addEventListener('resize', () => { clearTimeout(fitT); fitT = setTimeout(() => list[idx] && fitPhones(list[idx]), 150); });
+
   function activateSpots(slide) {
+    fitPhones(slide);
     playVideos(slide);
     $$('.spot.on').forEach(s => { if (!slide.contains(s)) s.classList.remove('on'); });
-    setTimeout(() => { if (list[idx] === slide) $$('.spot', slide).forEach(s => s.classList.add('on')); }, reduced ? 0 : 280);
+    // let the reviewer see the real screen for a moment before the spotlight dims it
+    setTimeout(() => { if (list[idx] === slide) $$('.spot', slide).forEach(s => s.classList.add('on')); }, reduced ? 0 : 1100);
   }
 
   function go(i, dir, instant) {
