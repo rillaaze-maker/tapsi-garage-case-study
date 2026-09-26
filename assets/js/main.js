@@ -10,10 +10,10 @@
 
   function loadScreens() {
     return new Promise((resolve, reject) => {
-      const inject = code => { const s = document.createElement('script'); if (code) s.textContent = code; else s.src = 'assets/screens.js?v=20260926e'; s.onload = resolve; s.onerror = reject; document.head.appendChild(s); if (code) resolve(); };
+      const inject = code => { const s = document.createElement('script'); if (code) s.textContent = code; else s.src = 'assets/screens.js?v=20260926g'; s.onload = resolve; s.onerror = reject; document.head.appendChild(s); if (code) resolve(); };
       if (location.protocol === 'file:') { inject(null); return; }
       const x = new XMLHttpRequest();
-      x.open('GET', 'assets/screens.js?v=20260926e');
+      x.open('GET', 'assets/screens.js?v=20260926g');
       x.onprogress = e => setP(e.lengthComputable ? e.loaded / e.total : e.loaded / EST);
       x.onload = () => (x.status >= 200 && x.status < 300 ? inject(x.responseText) : reject(new Error(x.status)));
       x.onerror = reject;
@@ -278,7 +278,7 @@
       if (list[idx] !== slide || !lb.hidden || !index.hidden) return;
       const target = slide.querySelector('.spot .phone, .phone[data-lb]');
       if (target) showCoach(target);
-    }, reduced ? 200 : 1100);
+    }, reduced ? 200 : 2800);
   }
 
   function holePath(r, pad, rad) {
@@ -355,6 +355,8 @@
       for (let i = 0; i < rs.length; i++) {
         const a = rs[i];
         if (!phones[i].closest('.hscroll') && (a.left < sr.left + 12 || a.right > sr.right - 12)) return false;
+        const box = phones[i].closest('.gpath');
+        if (box) { const br = box.getBoundingClientRect(); if (a.left < br.left + 8 || a.right > br.right - 8) return false; }
         for (let j = i + 1; j < rs.length; j++) {
           const b = rs[j];
           if (a.left < b.right + 10 && b.left < a.right + 10 && a.top < b.bottom && b.top < a.bottom) return false;

@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=20260926e">
+<link rel="stylesheet" href="assets/css/style.css?v=20260926g">
 </head>
 <body class="at-landing loading">
 
@@ -82,20 +82,40 @@
 
 <!-- ========== CONTEXT ========== -->
 <section class="slide" data-id="glance" data-ch="Context" data-title="At a glance" data-quick>
-  <div class="s-inner split">
-    <div class="s-text">
-      <p class="ch-label">Context</p>
-      <h2>Tapsi Garage sells help like it sells engine oil.</h2>
-      <p class="lead">There are two ways to get a battery in the app. Both are built like a purchase. Neither treats a dead car as urgent.</p>
+  <div class="s-inner">
+    <div class="glance-top">
+      <div>
+        <p class="ch-label">Context</p>
+        <h2>Tapsi Garage sells help like a spare part.</h2>
+        <p class="lead">There are two ways to get a battery in the app. Both are built like a purchase. Neither treats a dead car as urgent.</p>
+      </div>
       <div class="facts">
         <div><b>2</b><span>paths walked end to end</span></div>
         <div><b>0 / 16</b><span>screens fully serve the stranded driver</span></div>
         <div><b>22</b><span>heuristic findings</span></div>
       </div>
     </div>
-    <div class="s-visual pair">
-      <figure><div class="spot" data-img="S16" data-r="405,695,482,732" data-tone="s2" data-alt="Battery catalog: installation is a grey tag under the price"></div><figcaption><b>Path A</b> The catalog</figcaption></figure>
-      <figure><div class="spot" data-img="O14" data-r="120,962,590,1045" data-tone="s3" data-alt="On-site service: 'I'm stranded' is a small checkbox"></div><figcaption><b>Path B</b> The on-site service</figcaption></figure>
+    <div class="glance-paths">
+      <div class="gpath">
+        <p class="gp-head"><b>Path A</b> The catalog <span>8 screens</span></p>
+        <ol class="gflow">
+          <li><div class="phone" data-img="S18" data-alt="Tapsi Garage home"></div><span>Home</span></li>
+          <li><div class="spot" data-img="S16" data-r="405,695,482,732" data-tone="s2" data-alt="Battery list: installation is a small grey word"></div><span>Battery list</span></li>
+          <li><div class="phone" data-img="S15" data-alt="Battery product page"></div><span>Product</span></li>
+          <li><div class="phone" data-img="S07" data-alt="Payment"></div><span>Payment</span></li>
+        </ol>
+        <p class="gp-issue">Getting it installed is one small grey word: <bdi class="fa">«تعویض»</bdi>.</p>
+      </div>
+      <div class="gpath">
+        <p class="gp-head"><b>Path B</b> The on-site service <span>8 screens</span></p>
+        <ol class="gflow">
+          <li><div class="phone" data-img="S18" data-alt="Tapsi Garage home"></div><span>Home</span></li>
+          <li><div class="phone" data-img="O16" data-alt="On-site services"></div><span>On-site services</span></li>
+          <li><div class="phone" data-img="O15" data-alt="Your details and a time window"></div><span>ID and time slot</span></li>
+          <li><div class="spot" data-img="O14" data-r="120,962,590,1045" data-tone="s3" data-alt="'I'm stranded' is a small checkbox"></div><span>Location</span></li>
+        </ol>
+        <p class="gp-issue">"I'm stranded" is a small checkbox, four screens in.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -377,7 +397,7 @@
     <div class="s-text">
       <p class="ch-label">Problem</p>
       <h2>Every major issue has the same root.</h2>
-      <p class="lead">A battery is a service: someone has to come and fit it. The app sells it like engine oil, as a product. The heuristics show what that costs, screen by screen.</p>
+      <p class="lead">A battery is a service: someone has to come and fit it. The app sells it like a spare part. The heuristics show what that costs, screen by screen.</p>
       <p class="note">App-wide issues (A1–A8) are real, but they have other causes.</p>
     </div>
     <div class="root" id="root">
@@ -402,7 +422,7 @@
     <p class="ch-label">Problem</p>
     <h2>What, why, how.</h2>
     <dl class="wwh">
-      <div><dt>What</dt><dd>Two ways to get a battery. The catalog sells it like engine oil and sends you to a shop. The on-site service is hidden, runs on a partner's web page, and books a time window.</dd></div>
+      <div><dt>What</dt><dd>Two ways to get a battery. The catalog sells it like a spare part and sends you to a shop. The on-site service is hidden, runs on a partner's web page, and books a time window.</dd></div>
       <div class="key"><dt>Why<span>The core insight</span></dt><dd>Both were built as purchases, <mark>product first</mark>. For a battery, <mark>the situation comes first</mark>: a dead car needs help fast, a planned swap needs certainty it fits.</dd></div>
       <div><dt>How</dt><dd>One entry that asks what's going on. An emergency path built for speed. A planned path that starts from your car and joins shop and at-home installation.</dd></div>
     </dl>
@@ -666,6 +686,6 @@
   <div class="lb-body" id="lbBody"></div>
 </div>
 
-<script src="assets/js/main.js?v=20260926e"></script>
+<script src="assets/js/main.js?v=20260926g"></script>
 </body>
 </html>
