@@ -2,7 +2,7 @@
   'use strict';
 
   /* ---------- load every screenshot (one bundle), then start ---------- */
-  const EST = 3.35e6;
+  const EST = 5.2e6;
   const loader = document.getElementById('loader');
   const bar = document.getElementById('loaderBar');
   const pctEl = document.getElementById('loaderPct');
@@ -10,10 +10,10 @@
 
   function loadScreens() {
     return new Promise((resolve, reject) => {
-      const inject = code => { const s = document.createElement('script'); if (code) s.textContent = code; else s.src = 'assets/screens.js?v=20260925b'; s.onload = resolve; s.onerror = reject; document.head.appendChild(s); if (code) resolve(); };
+      const inject = code => { const s = document.createElement('script'); if (code) s.textContent = code; else s.src = 'assets/screens.js?v=20260926c'; s.onload = resolve; s.onerror = reject; document.head.appendChild(s); if (code) resolve(); };
       if (location.protocol === 'file:') { inject(null); return; }
       const x = new XMLHttpRequest();
-      x.open('GET', 'assets/screens.js?v=20260925b');
+      x.open('GET', 'assets/screens.js?v=20260926c');
       x.onprogress = e => setP(e.lengthComputable ? e.loaded / e.total : e.loaded / EST);
       x.onload = () => (x.status >= 200 && x.status < 300 ? inject(x.responseText) : reject(new Error(x.status)));
       x.onerror = reject;

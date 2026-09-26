@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=20260925b">
+<link rel="stylesheet" href="assets/css/style.css?v=20260926c">
 </head>
 <body class="at-landing loading">
 
@@ -184,6 +184,7 @@
         <figure><div class="phone video"><div class="screen"><video muted loop playsinline preload="none" poster="assets/bench/torob.jpg" data-src="assets/bench/torob.mp4"></video></div></div><figcaption>Torob<span>Product search</span></figcaption></figure>
         <figure><div class="phone video"><div class="screen"><video muted loop playsinline preload="none" poster="assets/bench/jabama.jpg" data-src="assets/bench/jabama.mp4"></video></div></div><figcaption>Jabama<span>Villa booking</span></figcaption></figure>
         <figure><div class="phone video"><div class="screen"><video muted loop playsinline preload="none" poster="assets/bench/tapsi-garage.jpg" data-src="assets/bench/tapsi-garage.mp4"></video></div></div><figcaption>Tapsi Garage<span>Catalog</span></figcaption></figure>
+        <figure><div class="phone video"><div class="screen"><video muted loop playsinline preload="none" poster="assets/bench/cafu.jpg" data-src="assets/bench/cafu.mp4"></video></div></div><figcaption>CAFU (UAE)<span>Car services, for the redesign</span></figcaption></figure>
       </div>
     </div>
   </div>
@@ -429,32 +430,131 @@
         <div><span>Key result · Planned</span><p>Orders where the battery doesn't fit the saved car</p><i>Target: close to zero</i></div>
         <div><span>Key result · Both</span><p>Share of battery orders reaching the on-site service</p><i>Target: above today</i></div>
       </div>
-      <div class="okr-i"><span>Initiatives</span><p>Situation-first entry · Emergency request · Car-first battery finder</p></div>
+      <div class="okr-i"><span>Initiatives</span><p>A home that knows your car · Call-first SOS · Car-first battery list</p></div>
     </div>
     <p class="note">I don't have Tapsi Garage's data. These are targets to validate, not results.</p>
   </div>
 </section>
 
 <!-- ========== SOLUTION ========== -->
+<section class="slide" data-id="borrowed" data-ch="Solution" data-title="Borrowed from a Snapp ride">
+  <div class="s-inner">
+    <p class="ch-label">Solution · References</p>
+    <h2>A stranded driver already knows this flow.</h2>
+    <p class="lead">I took a Snapp ride and screenshotted every step. Choose a type, request, wait, watch it arrive. My emergency screen reuses that, so there's nothing new to learn.</p>
+    <div class="fgrid five">
+      <figure class="fcard"><div class="spot" data-img="T13" data-r="24,606,564,802" data-tone="g" data-alt="Snapp ride types"></div><figcaption><strong>Choose the help</strong><span>Ride types become jump-start or replace. Selected: green tint and outline.</span></figcaption></figure>
+      <figure class="fcard"><div class="spot" data-img="T12" data-r="24,1074,564,1224" data-tone="g" data-alt="Snapp searching for a driver"></div><figcaption><strong>While it searches</strong><span>One line of status and one thing you can still do.</span></figcaption></figure>
+      <figure class="fcard"><div class="spot" data-img="T08" data-r="24,776,564,1090" data-tone="g" data-alt="Snapp driver on the way"></div><figcaption><strong>On the way</strong><span>Arrival pill, who's coming, round call and chat buttons.</span></figcaption></figure>
+      <figure class="fcard"><div class="spot" data-img="T33" data-r="36,174,556,384" data-tone="v" data-alt="Snapp home with live ride card"></div><figcaption><strong>Live on home</strong><span>An active ride sits above everything else on the home screen.</span></figcaption></figure>
+      <figure class="fcard"><div class="spot" data-img="C01" data-r="314,462,448,644" data-tone="g" data-alt="CAFU home with a 20-minute badge on Battery"></div><figcaption><strong>CAFU (UAE)</strong><span>The arrival time is on the Battery tile, before you tap.</span></figcaption></figure>
+    </div>
+    <p class="note">Driver names, faces, plates and the map labels are blurred.</p>
+  </div>
+</section>
+
 <section class="slide" data-id="redesign" data-ch="Solution" data-title="The redesign" data-quick>
   <div class="s-inner">
     <p class="ch-label">Solution</p>
-    <h2>Ask about the situation, not the product.</h2>
+    <h2>Your car first. Help one tap away.</h2>
     <div class="screens">
       <figure class="screen-card">
-        <div class="phone redesign"><img src="assets/redesign/01-entry.png" alt="Screen 1: situation-first entry" onerror="this.parentElement.classList.add('is-empty')"><span class="ph">Screen 1</span></div>
-        <figcaption><strong>What's going on?</strong><span>"My car won't start" or "I want to replace my battery". The car comes from the profile.</span><span class="fixes">Fixes S1 · C1</span></figcaption>
+        <div class="phone" data-img="R15" data-alt="Screen 1: a home screen that knows your car"></div>
+        <figcaption><strong>A home that knows your car</strong><span>The saved car, with the days left on its battery. SOS is always in the tab bar.</span><span class="fixes">Fixes C1 · S1</span></figcaption>
       </figure>
       <figure class="screen-card">
-        <div class="phone redesign"><img src="assets/redesign/02-emergency.png" alt="Screen 2: emergency help request" onerror="this.parentElement.classList.add('is-empty')"><span class="ph">Screen 2</span></div>
-        <figcaption><strong>Help where the car is</strong><span>GPS location, one action, arrival time and price before confirming. No ID, no upsell.</span><span class="fixes">Fixes S2 · S3 · S5 · S7</span></figcaption>
+        <div class="phone" data-img="R17" data-alt="Screen 2: battery list for the saved car"></div>
+        <figcaption><strong>Only batteries that fit</strong><span>The car is already picked. Every card says if it fits, and how it gets installed.</span><span class="fixes">Fixes C1 · C2 · C3</span></figcaption>
       </figure>
       <figure class="screen-card">
-        <div class="phone redesign"><img src="assets/redesign/03-finder.png" alt="Screen 3: car-first battery finder" onerror="this.parentElement.classList.add('is-empty')"><span class="ph">Screen 3</span></div>
-        <figcaption><strong>Only batteries that fit</strong><span>Starts from the saved car. Install at a shop or at home, in one place.</span><span class="fixes">Fixes C2 · C3 · C5 · C7</span></figcaption>
+        <div class="phone" data-img="R23" data-alt="Screen 3: technician on the way"></div>
+        <figcaption><strong>SOS: a call, not a checkout</strong><span>Share where you are, an expert calls, a technician comes. No ID, no time slot, no upsell.</span><span class="fixes">Fixes S2 · S3 · S4 · S5 · S6 · S7</span></figcaption>
       </figure>
     </div>
-    <p class="note">Assumption: on-site technicians can be dispatched right away, instead of in a time window. That's a question for operations.</p>
+    <p class="note">Assumptions: a call center can triage every SOS, and technicians can go out right away. Both are questions for operations.</p>
+  </div>
+</section>
+
+<section class="slide" data-id="rd-home" data-ch="Solution" data-title="Screen 1: the home screen">
+  <div class="s-inner split">
+    <div class="s-text">
+      <p class="ch-label">Solution · Screen 1</p>
+      <h2>The home screen reacts to the car.</h2>
+      <p class="lead">Same screen, two moments. When the battery is due, the card turns amber and the offers switch to batteries that fit.</p>
+      <p class="note">The countdown needs data from a screen I didn't design: the odometer and the last battery date. I kept Tapsi Garage's 3D icons because they already fit Snapp, and only added a green accent.</p>
+    </div>
+    <div class="s-visual pair">
+      <figure><div class="phone" data-img="R14" data-alt="Home, battery fine: 126 days left"></div><figcaption><b>Normal</b> 126 days left</figcaption></figure>
+      <figure><div class="phone" data-img="R15" data-alt="Home, battery due soon: 22 days left"></div><figcaption><b>Due soon</b> 22 days left</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-id="rd-path" data-ch="Solution" data-title="Screen 1: how it got there">
+  <div class="s-inner">
+    <p class="ch-label">Solution · Screen 1 · Iterations</p>
+    <h2>Seven drafts of one home screen.</h2>
+    <p class="lead">My first draft put a lottery banner above the car. That's promotion saturation, and H8 says cut it. Each draft removed something.</p>
+    <div class="fgrid small iter">
+      <figure class="fcard"><div class="phone" data-img="R07" data-alt="Draft 1"></div><figcaption><strong>1</strong><span>Promo first, car last</span></figcaption></figure>
+      <figure class="fcard"><div class="phone" data-img="R08" data-alt="Draft 2"></div><figcaption><strong>2</strong><span>Car moves to the top</span></figcaption></figure>
+      <figure class="fcard"><div class="phone" data-img="R09" data-alt="Draft 3"></div><figcaption><strong>3</strong><span>Car card styles</span></figcaption></figure>
+      <figure class="fcard"><div class="phone" data-img="R10" data-alt="Draft 4"></div><figcaption><strong>4</strong><span>Car card styles</span></figcaption></figure>
+      <figure class="fcard"><div class="phone" data-img="R11" data-alt="Draft 5"></div><figcaption><strong>5</strong><span>Car card styles</span></figcaption></figure>
+      <figure class="fcard"><div class="phone" data-img="R12" data-alt="Draft 6"></div><figcaption><strong>6</strong><span>Lighter card</span></figcaption></figure>
+      <figure class="fcard"><div class="phone" data-img="R13" data-alt="Draft 7"></div><figcaption><strong>7</strong><span>Snapp's services block, later replaced</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-id="rd-tabbar" data-ch="Solution" data-title="Screen 1: four tab bars">
+  <div class="s-inner">
+    <p class="ch-label">Solution · Screen 1 · A/B test</p>
+    <h2>Four tab bars. A test should pick one.</h2>
+    <p class="lead">SOS has to be found in a second without shouting over the rest of the app. I picked C from my benchmarks, but an A/B test should decide, not me.</p>
+    <div class="tabvars">
+      <figure><img src="assets/redesign/tab-a.webp" alt="Variant A: filled red bolt, red label" loading="lazy"><figcaption><b>A</b> Filled red</figcaption></figure>
+      <figure><img src="assets/redesign/tab-b.webp" alt="Variant B: grey outline, like the other tabs" loading="lazy"><figcaption><b>B</b> Grey, like the other tabs</figcaption></figure>
+      <figure class="pick"><img src="assets/redesign/tab-c.webp" alt="Variant C: red outline bolt, red label" loading="lazy"><figcaption><b>C</b> Red outline · my pick</figcaption></figure>
+      <figure><img src="assets/redesign/tab-d.webp" alt="Variant D: raised red button" loading="lazy"><figcaption><b>D</b> Raised red button</figcaption></figure>
+    </div>
+    <p class="note"><b>What I'd measure:</b> time from opening the app to tapping SOS, and taps on SOS by mistake.</p>
+  </div>
+</section>
+
+<section class="slide" data-id="rd-list" data-ch="Solution" data-title="Screen 2: the battery list">
+  <div class="s-inner split">
+    <div class="s-text">
+      <p class="ch-label">Solution · Screen 2</p>
+      <h2>Only batteries that fit.</h2>
+      <p class="lead">The car is picked before the list loads. Each card says in plain words if it fits, and whether it's installed at home or at a shop.</p>
+      <p class="note">Two versions: a bigger banner for marketing and partner deals, or more batteries above the fold. The banner also points planned drivers to the fast on-site service.</p>
+      <p class="fixes">Fixes C1 · C2 · C3</p>
+    </div>
+    <div class="s-visual pair">
+      <figure><div class="phone" data-img="R17" data-alt="Battery list with a big banner"></div><figcaption><b>A</b> Room for a campaign</figcaption></figure>
+      <figure><div class="phone" data-img="R18" data-alt="Battery list with a small banner"></div><figcaption><b>B</b> More batteries up front</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-id="rd-sos" data-ch="Solution" data-title="Screen 3: the SOS flow" data-quick>
+  <div class="s-inner wide">
+    <p class="ch-label">Solution · Screen 3</p>
+    <h2>SOS: a call, not a checkout.</h2>
+    <p class="lead">"Won't start" can be the battery or the alternator, and a stressed driver can't tell. So an expert calls first, and a technician only goes out with the right part.</p>
+    <div class="hscroll">
+      <ol class="sosflow">
+        <li><div class="phone" data-img="R19" data-alt="Tap SOS"></div><b>Tap SOS</b><span>The moment before the sheet opens</span></li>
+        <li><div class="phone" data-img="R22" data-alt="What happened?"></div><b>What happened?</b><span>Won't start, or "I don't know"</span></li>
+        <li><div class="phone" data-img="R21" data-alt="Share location"></div><b>Where are you?</b><span>GPS, or say it on the phone</span></li>
+        <li><div class="phone" data-img="R25" data-alt="Finding an expert"></div><b>Finding an expert</b><span>Cost agreed on the call, paid after</span></li>
+        <li><div class="phone" data-img="R26" data-alt="Call or cancel"></div><b>Call or cancel</b><span>Always one tap away</span></li>
+        <li><div class="phone" data-img="R23" data-alt="Technician on the way"></div><b>On the way</b><span>Arrival time and who's coming</span></li>
+        <li><div class="phone" data-img="R27" data-alt="Request details"></div><b>Details</b><span>Location, safety, cancel</span></li>
+      </ol>
+    </div>
+    <p class="note">No choices, no price to pick, no national ID, no partner web page. I think SOS deserves its own business line at Tapsi Garage; this flow is my proposal for it.</p>
   </div>
 </section>
 
@@ -463,12 +563,12 @@
     <p class="ch-label">Solution · Scope</p>
     <h2>What I left out, on purpose.</h2>
     <div class="list-grid">
+      <div><b>A prototype</b><p>I know Snapp's bottom sheets and transitions. The timebox didn't allow a clickable prototype.</p></div>
+      <div><b>Car data entry</b><p>The odometer and last battery date need their own screen.</p></div>
+      <div><b>Call center and dispatch</b><p>Business decisions. I designed the experience and flagged them.</p></div>
       <div><b>App-wide polish</b><p>A2–A8. Real, but severity 1–2 and outside both paths.</p></div>
       <div><b>Form validation</b><p>A1 needs a pass across every form, not one flow.</p></div>
-      <div><b>The partner web page</b><p>Moving demo.mrbatri.com into the app is an engineering decision.</p></div>
       <div><b>Car wash</b><p>The same story, and A4, but a different flow.</p></div>
-      <div><b>Dispatch and pricing</b><p>A business decision. I designed the experience and flagged it.</p></div>
-      <div><b>A new visual skin</b><p>The brief asks for a real problem, not a new coat of paint.</p></div>
     </div>
   </div>
 </section>
@@ -523,9 +623,10 @@
     <h2>With more time, I'd…</h2>
     <ol class="next-list">
       <li><b>Test with both users.</b> Five who've been stranded, five planning a swap.</li>
-      <li><b>Book the on-site service by day.</b> I walked it at 10 pm; I'd check same-day slots.</li>
-      <li><b>Ask why it runs on a partner page</b> and what bringing it in-app takes.</li>
-      <li><b>Talk to operations</b> about dispatching technicians right away.</li>
+      <li><b>Run the tab bar A/B test</b> on time to find SOS.</li>
+      <li><b>Check Android.</b> Native back gesture, Material patterns, smaller screens.</li>
+      <li><b>Prototype the bottom sheets</b> and every SOS state.</li>
+      <li><b>Pitch SOS as its own line</b> to Tapsi Garage, with operations: call center, dispatch time, bringing the partner page in-app.</li>
       <li><b>Set real baselines</b> for the three key results.</li>
     </ol>
   </div>
@@ -538,7 +639,7 @@
     <p class="lead">The brief allows it and asks me to document it.</p>
     <div class="two-col">
       <div><b>AI helped with</b><ul><li>Reading Snapp's design tokens from its web app's CSS</li><li>Pressure-testing my framing and severity ratings</li><li>Proofreading my English</li><li>Building this deck from my screenshots and notes</li></ul></div>
-      <div class="mine"><b>What stayed mine</b><ul><li>The interviews and both pivots</li><li>Choosing the app and the flows</li><li>Walking and recording 151 screens</li><li>The findings and the design decisions</li></ul></div>
+      <div class="mine"><b>What stayed mine</b><ul><li>The interviews and both pivots</li><li>Choosing the app and the flows</li><li>Walking and recording 151 screens, plus a full Snapp ride</li><li>The findings and the design decisions</li></ul></div>
     </div>
   </div>
 </section>
@@ -563,9 +664,9 @@
   <div class="s-inner narrow center">
     <p class="ch-label">End</p>
     <h2 class="big">Thanks for reading.</h2>
-    <p class="lead">The Figma file has the three screens and their specs.</p>
+    <p class="lead">The Figma file has every screen, draft and variant.</p>
     <div class="actions">
-      <a class="btn" href="#" id="figmaLink" target="_blank" rel="noopener">Open the Figma file</a>
+      <a class="btn" href="https://www.figma.com/design/clmtntxuuZA4mM71XkUnfn/Snapp-Challenge---Tapsi-Garage-Redesign?node-id=1-2" id="figmaLink" target="_blank" rel="noopener">Open the Figma file</a>
       <button type="button" class="btn line" id="toFull" data-switch="full">See the full case study</button>
       <button type="button" class="btn line" id="restart">Back to start</button>
     </div>
@@ -595,6 +696,6 @@
   <div class="lb-body" id="lbBody"></div>
 </div>
 
-<script src="assets/js/main.js?v=20260925b"></script>
+<script src="assets/js/main.js?v=20260926c"></script>
 </body>
 </html>

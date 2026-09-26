@@ -313,9 +313,12 @@ h3 { margin: 0; font-size: 19px; font-weight: 600; letter-spacing: -.01em; }
 .fgrid { margin-top: 30px; display: grid; gap: 28px 20px; justify-items: center; }
 .fgrid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .fgrid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.fgrid.five { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 24px 14px; }
 .fgrid.small { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 24px 16px; }
 .fgrid.three .phone { --w: 210px; }
 .fgrid.four .phone { --w: 186px; }
+.fgrid.five .phone { --w: 168px; }
+.fgrid.five .fcard figcaption { max-width: 190px; font-size: 13px; }
 .fgrid.small .phone { --w: 140px; }
 .fcard { display: flex; flex-direction: column; align-items: center; width: 100%; }
 .fcard figcaption { margin-top: 14px; width: 100%; max-width: 240px; font-size: 13.5px; color: var(--ink-2); line-height: 1.45; }
@@ -448,6 +451,7 @@ body.path-full #toFull { display: none; }
 /* ============ RESPONSIVE ============ */
 @media (max-width: 1100px) {
   .fgrid.four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fgrid.five { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .list-grid.four { grid-template-columns: repeat(2, 1fr); }
   .chap-name { font-size: 11px; }
   #nextLabel { display: none; }
@@ -498,6 +502,8 @@ body.path-full #toFull { display: none; }
   .s-visual.trio .phone { --w: 104px; }
   .fgrid.four { gap: 22px 12px; }
   .fgrid.four .phone { --w: 150px; }
+  .fgrid.five { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 12px; }
+  .fgrid.five .phone { --w: 150px; }
   .fgrid.small { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .fgrid.small .phone { --w: 140px; }
   .seg button { font-size: 12.5px; padding: 6px 8px; }
@@ -518,11 +524,12 @@ body.path-full #toFull { display: none; }
   .fgrid { margin-top: 22px; }
   .fgrid.three .phone { --w: clamp(130px, calc((var(--deck-h) - 400px) / 2.15), 210px); }
   .fgrid.four .phone { --w: clamp(120px, calc((var(--deck-h) - 410px) / 2.15), 186px); }
+  .fgrid.five .phone { --w: clamp(92px, calc((var(--deck-h) - 420px) / 2.15), 168px); }
   .slide[data-id="snapp"] .fgrid.four .phone { --w: clamp(110px, calc((var(--deck-h) - 470px) / 2.15), 186px); }
   .fgrid.small { grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); gap: 18px 14px; }
   .fgrid.small .phone { --w: clamp(96px, calc((var(--deck-h) - 330px) / 2.15), 130px); }
   .fgrid.small .fcard figcaption { max-width: 150px; font-size: 12.5px; }
-  .screens .phone, .screen-card .phone { --w: clamp(120px, calc((var(--deck-h) - 400px) / 2.15), 220px); }
+  .screens .phone, .screen-card .phone { --w: clamp(96px, calc((var(--deck-h) - 400px) / 2.15), 220px); }
   .screens { margin-top: 20px; }
   .score .thumbs { --th: clamp(84px, calc((var(--deck-h) - 380px) / 2 - 20px), 165px); grid-template-columns: repeat(8, calc(var(--th) * 0.4617)); }
   .bench-clips .phone { --w: clamp(100px, calc((var(--deck-h) - 330px) / 2.15), 136px); }
@@ -564,3 +571,32 @@ body.path-full #toFull { display: none; }
 .coach-text { margin: 6px 0 0; font-size: 14px; line-height: 1.5; color: var(--ink-2); }
 .coach-ok { margin-top: 16px; height: 40px; padding: 0 18px; border-radius: 10px; font-size: 14px; }
 @media (prefers-reduced-motion: reduce) { .coach-ring { animation: none; } }
+
+/* ============ REDESIGN SLIDES ============ */
+.tabvars { margin-top: 24px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 24px; }
+.tabvars figure { margin: 0; }
+.tabvars img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 12px; }
+.tabvars figcaption { margin-top: 8px; font-size: 14px; color: var(--ink-2); }
+.tabvars figcaption b { color: var(--ink); margin-right: 6px; }
+.tabvars .pick img { border-color: var(--green); box-shadow: 0 0 0 3px rgba(34,169,88,.18); }
+.tabvars .pick figcaption { color: var(--green-ink); font-weight: 600; }
+.sosflow { list-style: none; margin: 0; padding: 4px 32px 10px; display: grid; grid-template-columns: repeat(7, minmax(118px, 1fr)); gap: 14px; counter-reset: sos; }
+.sosflow li { display: flex; flex-direction: column; align-items: center; text-align: center; counter-increment: sos; }
+.sosflow .phone { --w: 132px; }
+.sosflow b { margin-top: 10px; font-size: 13.5px; color: var(--ink); }
+.sosflow b::before { content: counter(sos) ". "; color: var(--green-ink); }
+.sosflow span { margin-top: 2px; font-size: 12.5px; color: var(--ink-2); line-height: 1.4; }
+.s-text .fixes { margin-top: 14px; }
+.fgrid.small.iter { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+@media (min-width: 901px) {
+  .sosflow .phone { --w: clamp(84px, calc((var(--deck-h) - 360px) / 2.15), 140px); }
+  .fgrid.small.iter .phone { --w: clamp(90px, calc((var(--deck-h) - 330px) / 2.15), 130px); }
+  .slide[data-id="rd-home"] .s-visual.pair .phone, .slide[data-id="rd-list"] .s-visual.pair .phone { --w: clamp(150px, calc((var(--deck-h) - 120px) / 2.15), 250px); }
+  .tabvars { max-width: calc((var(--deck-h) - 250px) * 2.4); }
+}
+@media (max-width: 900px) {
+  .tabvars { grid-template-columns: 1fr; }
+  .sosflow { grid-template-columns: repeat(7, 120px); }
+  .sosflow .phone { --w: 110px; }
+  .fgrid.small.iter { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
